@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Courier New.spritefont</Source>
+      <Name>Courier New</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Courier New.xnb</Output>
+      <Time>2016-12-22T02:00:02.3409667+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\bomb1.png</Source>
+      <Name>Images\bomb1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb1.xnb</Output>
+      <Time>2016-12-18T00:38:39.8986771+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\door.png</Source>
+      <Name>Images\door</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\door.xnb</Output>
+      <Time>2016-12-20T14:29:46.4883125+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\explosion.png</Source>
+      <Name>Images\explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\explosion.xnb</Output>
+      <Time>2016-12-21T17:02:26.6208694+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\grass.png</Source>
+      <Name>Images\grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\grass.xnb</Output>
+      <Time>2016-12-21T18:38:36.6655886+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\player.png</Source>
+      <Name>Images\player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\player.xnb</Output>
+      <Time>2017-01-02T14:11:48.803549+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\rock.png</Source>
+      <Name>Images\rock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\rock.xnb</Output>
+      <Time>2016-12-17T02:00:29.6820648+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\tree.png</Source>
+      <Name>Images\tree</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\tree.xnb</Output>
+      <Time>2016-12-17T02:00:04.4985859+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\grass_after_boom.png</Source>
+      <Name>Images\grass_after_boom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\grass_after_boom.xnb</Output>
+      <Time>2016-12-21T18:55:33.9914972+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\player_moving.png</Source>
+      <Name>Images\player_moving</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\player_moving.xnb</Output>
+      <Time>2017-01-02T14:12:13.3321552+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\bomb1_animation.png</Source>
+      <Name>Images\bomb1_animation</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb1_animation.xnb</Output>
+      <Time>2016-12-18T00:40:50.170847+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\heart.png</Source>
+      <Name>Images\heart</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\heart.xnb</Output>
+      <Time>2016-12-22T20:37:46.8381216+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\bomb1_small.png</Source>
+      <Name>Images\bomb1_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb1_small.xnb</Output>
+      <Time>2016-12-21T20:50:14.6259434+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\pause_screen.png</Source>
+      <Name>Images\pause_screen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\pause_screen.xnb</Output>
+      <Time>2016-12-22T23:23:42.4933288+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\start_screen.png</Source>
+      <Name>Images\start_screen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\start_screen.xnb</Output>
+      <Time>2016-12-22T23:24:10.4504876+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\explosion1.wav</Source>
+      <Name>Sounds\explosion1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Sounds\explosion1.xnb</Output>
+      <Time>2016-12-23T12:07:58.1257673+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\explosion2.wav</Source>
+      <Name>Sounds\explosion2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Sounds\explosion2.xnb</Output>
+      <Time>2016-12-23T12:07:58.1481128+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\explosion3.wav</Source>
+      <Name>Sounds\explosion3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Sounds\explosion3.xnb</Output>
+      <Time>2016-12-23T12:07:58.1571192+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\music.wav</Source>
+      <Name>Sounds\music</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Sounds\music.xnb</Output>
+      <Time>2016-12-23T13:14:56.6504215+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\enemy.png</Source>
+      <Name>Images\enemy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\enemy.xnb</Output>
+      <Time>2017-01-02T14:15:49.8586235+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\enemy_moving.png</Source>
+      <Name>Images\enemy_moving</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\enemy_moving.xnb</Output>
+      <Time>2017-01-02T14:16:31.626928+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\bomb2.png</Source>
+      <Name>Images\bomb2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb2.xnb</Output>
+      <Time>2017-01-02T14:13:15.9302876+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\bomb2_animation.png</Source>
+      <Name>Images\bomb2_animation</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb2_animation.xnb</Output>
+      <Time>2017-01-02T14:13:46.4555883+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\bomb2_small.png</Source>
+      <Name>Images\bomb2_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb2_small.xnb</Output>
+      <Time>2017-01-02T14:14:11.5905291+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\bomb3.png</Source>
+      <Name>Images\bomb3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb3.xnb</Output>
+      <Time>2017-01-02T14:14:40.1253481+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\bomb3_animation.png</Source>
+      <Name>Images\bomb3_animation</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb3_animation.xnb</Output>
+      <Time>2017-01-02T14:14:59.8429424+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\bomb3_small.png</Source>
+      <Name>Images\bomb3_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb3_small.xnb</Output>
+      <Time>2017-01-02T14:15:24.066123+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\die_screen.png</Source>
+      <Name>Images\die_screen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\die_screen.xnb</Output>
+      <Time>2017-01-02T14:40:55.2888055+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\game_over_screen.png</Source>
+      <Name>Images\game_over_screen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\game_over_screen.xnb</Output>
+      <Time>2017-01-02T14:40:14.2733792+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\game_win_screen.png</Source>
+      <Name>Images\game_win_screen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\game_win_screen.xnb</Output>
+      <Time>2017-01-02T14:49:56.4702285+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\enemy_die.png</Source>
+      <Name>Images\enemy_die</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\enemy_die.xnb</Output>
+      <Time>2017-01-02T19:18:02.5740533+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\player_die.png</Source>
+      <Name>Images\player_die</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\player_die.xnb</Output>
+      <Time>2017-01-02T19:13:37.7818668+02:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{D78E7BBC-126E-4238-9686-6094AC048AC7}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T17:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T17:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-12-16T23:47:21.6205659+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
