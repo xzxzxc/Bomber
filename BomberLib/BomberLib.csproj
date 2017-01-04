@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A85E3D8E-9338-4F51-82D8-4441AD5A1C5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BomberLib</RootNamespace>
+    <AssemblyName>BomberLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bombs\Bomb.cs" />
+    <Compile Include="Bombs\Bomb1.cs" />
+    <Compile Include="Bombs\Bomb2.cs" />
+    <Compile Include="Bombs\Bomb3.cs" />
+    <Compile Include="Cells\BombCell.cs" />
+    <Compile Include="Cells\Cell.cs" />
+    <Compile Include="Cells\DecoratedCell.cs" />
+    <Compile Include="Cells\ExitCell.cs" />
+    <Compile Include="Cells\GrassCell.cs" />
+    <Compile Include="Cells\RockCell.cs" />
+    <Compile Include="Cells\TreeCell.cs" />
+    <Compile Include="Charackters\Charackter.cs" />
+    <Compile Include="Charackters\EnemiesManager.cs" />
+    <Compile Include="Charackters\Enemy.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="GameData.cs" />
+    <Compile Include="GameInterface\DieScreen.cs" />
+    <Compile Include="GameInterface\GameOverScreen.cs" />
+    <Compile Include="GameInterface\GameWinScreen.cs" />
+    <Compile Include="GameInterface\PauseScreen.cs" />
+    <Compile Include="GameInterface\StartScreen.cs" />
+    <Compile Include="GameInterface\StatusLine.cs" />
+    <Compile Include="GameStatus.cs" />
+    <Compile Include="Graphics\DrawableText.cs" />
+    <Compile Include="Interfaces\ICoordinateDrawable.cs" />
+    <Compile Include="Interfaces\IDrawable.cs" />
+    <Compile Include="Interfaces\ICoordinateMovable.cs" />
+    <Compile Include="Interfaces\IMovable.cs" />
+    <Compile Include="Items\BombItem.cs" />
+    <Compile Include="Items\Door.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\ItemsHashCodes.cs" />
+    <Compile Include="Levels\Level.cs" />
+    <Compile Include="Levels\BombPlanter.cs" />
+    <Compile Include="Levels\Map.cs" />
+    <Compile Include="Charackters\Player.cs" />
+    <Compile Include="Levels\MapGenerator.cs" />
+    <Compile Include="Charackters\PlayerTouchEnemyChecker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Graphics\Animation.cs" />
+    <Compile Include="Graphics\Sprite.cs" />
+    <Compile Include="Graphics\GraphicsFactory.cs" />
+    <Compile Include="SaveManager.cs" />
+    <Compile Include="Sound\Music.cs" />
+    <Compile Include="Sound\SoundEffect.cs" />
+    <Compile Include="Sound\SoundFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SuperDiagram.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

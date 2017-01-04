@@ -1,0 +1,7 @@
+C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\bin\Debug\BomberLib.dll
+C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\bin\Debug\BomberLib.pdb
+C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Debug\BomberLib.Resources.resources
+C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Debug\BomberLib.csproj.GenerateResource.Cache
+C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Debug\BomberLib.dll
+C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Debug\BomberLib.pdb
+C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Debug\BomberLib.csprojResolveAssemblyReference.cache
