@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BomberLib.Cells;
-using BomberLib.Charackters;
+using BomberLib.Characters;
 using BomberLib.Interfaces;
 
 namespace BomberLib.Levels
@@ -48,18 +48,13 @@ namespace BomberLib.Levels
 
         public void CreateEnemies()
         {
-            EnemiesManager.StopLive();
+            //EnemiesManager.StopLive();
             GameData.Enemies = new List<Enemy>();
             GC.Collect();
             for (int i = 0; i < _enemyNum; i++)
             {
                 GameData.Enemies.Add(MapGenerator.GenerateEnemy());
             }
-        }
-
-        public void Load()
-        {
-            PlayerTouchEnemyChecker.Start();
         }
 
         public void ReLoad()
@@ -71,13 +66,12 @@ namespace BomberLib.Levels
                 cell.Y = cell.Y - GameData.YMapOffset;
             }
             CreateEnemies();
-            PlayerTouchEnemyChecker.Start();
         }
 
         public void Draw()
         {
             Map.Draw();
-            foreach (var enemy in GameData.Enemies)
+            foreach (var enemy in GameData.Enemies.ToArray())
             {
                 enemy.Draw();
             }

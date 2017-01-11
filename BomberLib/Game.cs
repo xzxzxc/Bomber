@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using BomberLib.Charackters;
+using BomberLib.Characters;
 using BomberLib.GameInterface;
 
 namespace BomberLib
@@ -10,36 +10,33 @@ namespace BomberLib
     {
         public static void StartNew()
         {
-            GameData.Player = new Player(GameData.CellWidth, GameData.CellHeight);
+            GameData.Player = new Player(GameData.CellWidth + 5, GameData.CellHeight + 5);
             GameData.CurrentLevelNum = 0;
-            LoadAndDrawLevel(0);
+            LoadLevel(0);
         }
 
         public static void NextLevel()
         {
-            PlayerTouchEnemyChecker.Stop();
-            
             if (GameData.CurrentLevelNum + 1 == GameData.MaxLevelNum)
                 GameData.GameStatus = GameStatus.GameWin;
             else
             {
-                EnemiesManager.StopLive();
-                LoadAndDrawLevel(++GameData.CurrentLevelNum);
+                //EnemiesManager.StopLive();
+                LoadLevel(++GameData.CurrentLevelNum);
                 GameData.Player.Bomb1Num += 10;
             }
         }
 
-        private static void LoadAndDrawLevel(int levelNum)
+        private static void LoadLevel(int levelNum)
         {
             if (levelNum > GameData.MaxLevelNum)
                 throw new ArgumentOutOfRangeException("There is no level number " + levelNum.ToString());
             GameData.CurrentLevel = GameData.Levels[levelNum];
             GameData.Levels[levelNum].Create();
-            GameData.Levels[levelNum].Load();
+            //GameData.Levels[levelNum].Load();
             GameData.ClearMapOffset();
             GameData.SetPlayerPositionToStart();
             GameData.GameStatus = GameStatus.InGame;
-            GameData.Levels[levelNum].Draw();
         }
 
         public static void RestartLevel()
@@ -49,7 +46,6 @@ namespace BomberLib
             GameData.SetPlayerPositionToStart();
             GameData.SetMinimalPlayerBombNumber();
             GameData.GameStatus = GameStatus.InGame;
-            GameData.CurrentLevel.Draw();
         }
 
         public static void PlayerDie()
@@ -60,15 +56,13 @@ namespace BomberLib
 
         public static void Pause()
         {
-            PlayerTouchEnemyChecker.Stop();
-            EnemiesManager.StopLive();
+            //EnemiesManager.StopLive();
             GameData.GameStatus = GameStatus.Pause;
         }
 
         public static void Continue()
         {
-            PlayerTouchEnemyChecker.Start();
-            EnemiesManager.StartLive();
+            //EnemiesManager.StartLive();
             GameData.GameStatus = GameStatus.InGame;
         }
 
@@ -82,9 +76,9 @@ namespace BomberLib
             StartScreen.Load(startText);
             PauseScreen.Load(pauseText);
             GameOverScreen.Load(gameOverText);
-            GameWinScreen.Load(winText);
+            GameWonScreen.Load(winText);
             DieScreen.Load(dieText);
-            StatusLine.Load();
+            StatusLine.Load(5, 5);
         }
 
         public static void SaveGame()
@@ -99,9 +93,8 @@ namespace BomberLib
             SaveManager.Load();
             
             GameData.CurrentLevel.CreateEnemies();
-            GameData.CurrentLevel.Load();
+            //GameData.CurrentLevel.Load();
             GameData.GameStatus = GameStatus.InGame;
-            GameData.CurrentLevel.Draw();
         }
     }
 }

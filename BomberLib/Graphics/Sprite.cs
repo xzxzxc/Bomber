@@ -1,18 +1,51 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BomberLib.Interfaces;
+// ReSharper disable VirtualMemberCallInConstructor
 
 namespace BomberLib.Graphics
 {
-    public abstract class Sprite : ICoordinateDrawable, ICoordinateMovable
+    public abstract class Sprite : IDrawable, IMovable
     {
         public abstract float Width { get; }
         public abstract float Height { get; }
-        public abstract float X { get; set; }
-        public abstract float Y { get; set; }
-        public List<Animation> Animations;
-        public Animation ActtiveAnimation;
 
-        public abstract void Draw(float x, float y);
+        public virtual float X
+        {
+            get { throw new NotImplementedException(); } // acessor must have body, but will never be used
+            set
+            {
+                foreach (var animation in _animations) animation.X = value;
+            }
+        }
+
+        public virtual float Y
+        {
+            get { throw new NotImplementedException(); } // acessor must have body, but will never be used
+            set { foreach (var animation in _animations) animation.Y = value; }
+        }
+
+        private readonly List<Animation> _animations;
+        private Animation _acttiveAnimation;
+
+        protected Sprite(float x, float y)
+        {
+            _animations = new List<Animation>();
+            X = x;
+            Y = y;
+        }
+
+        public virtual void Draw()
+        {
+            try
+            {
+                _acttiveAnimation?.Draw();
+            }
+            catch (EndException)
+            {
+                _acttiveAnimation = null;
+            }
+        }
 
         public bool IsInTouchAbove(Sprite sprite)
         {
@@ -44,42 +77,40 @@ namespace BomberLib.Graphics
 
         public void AddAnimations(Animation animation)
         {
-            animation.EndAnimation += () => { ActtiveAnimation = null; };
-            Animations.Add(animation);
+            SetAnimationPosition(animation);
+            _animations.Add(animation);
         }
 
-        public void DrawAnimationInCycle(int num, float x, float y)
+        private void SetAnimationPosition(Animation animation)
         {
-            if (ActtiveAnimation != Animations[num])
-            {
-                ActtiveAnimation?.Stop();
-                ActtiveAnimation = Animations[num];
-                //ActtiveAnimation.X = x;
-                //ActtiveAnimation.Y = y;
-                ActtiveAnimation.StartInCycle();
-            }
-            
-            //ActtiveAnimation.Draw();
+            animation.X = X;
+            animation.Y = Y;
         }
 
-        public void DrawAnimatonOneTime(int num, float x, float y)
+        public void StartDrawingAnimationInCycle(int num)
         {
-            if (ActtiveAnimation != Animations[num])
+            if (_acttiveAnimation != _animations[num])
             {
-                ActtiveAnimation?.Stop();
-                ActtiveAnimation = Animations[num];
-                //ActtiveAnimation.X = x;
-                //ActtiveAnimation.Y = y;
-                ActtiveAnimation.StartToEnd();
+                _acttiveAnimation?.Stop();
+                _acttiveAnimation = _animations[num];
+                _acttiveAnimation.StartInCycle();
             }
-            
-            // ActtiveAnimation.Draw();
+        }
+
+        public void StartDrawingAnimationToEnd(int num)
+        {
+            if (_acttiveAnimation != _animations[num])
+            {
+                _acttiveAnimation?.Stop();
+                _acttiveAnimation = _animations[num];
+                _acttiveAnimation.StartToEnd();
+            }
         }
 
         public void StopAnimation()
         {
-            ActtiveAnimation?.Stop();
-            ActtiveAnimation = null;
+            _acttiveAnimation?.Stop();
+            _acttiveAnimation = null;
         }
     }
 }

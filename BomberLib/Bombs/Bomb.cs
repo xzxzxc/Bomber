@@ -8,7 +8,7 @@ using BomberLib.Sound;
 namespace BomberLib.Bombs
 {
     public delegate void Boom();
-    public abstract class Bomb:ICoordinateDrawable
+    public abstract class Bomb:IDrawable
     {
         private readonly Sprite _sprite;
         private readonly SoundEffect _soundEffect;
@@ -17,6 +17,8 @@ namespace BomberLib.Bombs
         public readonly int Radious;
         private readonly Thread _clockThread;
         public Cell Cell => GameData.CurrentMap.GetCell(_sprite.X, _sprite.Y);
+        public float X { set { _sprite.X = value; } }
+        public float Y { set { _sprite.Y = value; } }
 
         protected Bomb(Sprite sprite, SoundEffect soundEffect, TimeSpan time, int radious)
         {
@@ -29,10 +31,10 @@ namespace BomberLib.Bombs
             _clockThread.Start();
         }
 
-        public void Draw(float x, float y)
+        public void Draw()
         {
-            _sprite.Draw(x, y);
-            _sprite.DrawAnimationInCycle(0, x, y);
+            _sprite.StartDrawingAnimationInCycle(0);
+            _sprite.Draw();
         }
 
         private void StartClock()
@@ -45,6 +47,7 @@ namespace BomberLib.Bombs
 
         public void StopClock()
         {
+            _sprite.StopAnimation();
             _clockThread.Abort();
         }
     }

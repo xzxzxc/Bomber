@@ -9,7 +9,7 @@ namespace BomberLib.Cells
     {
         private readonly int _bombNum;
 
-        public BombCell(int bombNum) : base(new BombItem(bombNum))
+        public BombCell(float x, float y, int bombNum) : base(x, y, new BombItem(x, y, bombNum))
         {
             _bombNum = bombNum;
         }
@@ -17,7 +17,7 @@ namespace BomberLib.Cells
         public override void UnBoom()
         {
             base.UnBoom();
-            _item = new BombItem(_bombNum);
+            _item = new BombItem(X, Y, _bombNum);
         }
 
         public override void GetObjectData(SerializationInfo info, StreamingContext context)

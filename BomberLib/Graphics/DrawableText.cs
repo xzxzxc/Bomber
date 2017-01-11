@@ -2,15 +2,19 @@
 
 namespace BomberLib.Graphics
 {
-    public abstract class DrawableText:ICoordinateDrawable
+    public abstract class DrawableText:IDrawable
     {
         public string Text;
+        protected float X;
+        protected float Y;
 
-        public DrawableText(string text)
+        public DrawableText(float x, float y, string text)
         {
+            X = x;
+            Y = y;
             Text = text;
         }
 
-        public abstract void Draw(float x, float y);
+        public abstract void Draw();
     }
 }

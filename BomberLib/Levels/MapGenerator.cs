@@ -1,6 +1,6 @@
 ﻿using System;
 using BomberLib.Cells;
-using BomberLib.Charackters;
+using BomberLib.Characters;
 
 namespace BomberLib.Levels
 {
@@ -49,7 +49,7 @@ namespace BomberLib.Levels
                     GenerateRandomPos(out x, out y);
                     if (IsAllowed(x, y))
                     {
-                        _currentMap.Cells[x, y] = new BombCell(i + 1);
+                        _currentMap.Cells[x, y] = new BombCell(x*GameData.CellWidth, y*GameData.CellHeight, i + 1);
                         bombsNums[i]--;
                     }
                 }
@@ -70,14 +70,12 @@ namespace BomberLib.Levels
             if (!(_currentMap[x, y] is GrassCell)) return false; // Enemy can stand only on grass
             
             // Start pos of player isn't allowed
-            if (x == 1 && y == 1) return false;
+            if (GameData.Player.Cell == _currentMap[x, y]) return false;
 
             // We don't want to block player
-            if (x < 5 && y == 1)
+            if (Math.Abs(x - GameData.Player.Cell.X) < 5 && Math.Abs(y - GameData.Player.Cell.Y) < 5)
                 return false;
-            if (x == 1 && y < 5)
-                return false;
-
+            
             return true;
         }
 
@@ -107,7 +105,7 @@ namespace BomberLib.Levels
                 MakeExit();
                 return;
             }
-            _currentMap.Cells[x, y] = new ExitCell();
+            _currentMap.Cells[x, y] = new ExitCell(x * GameData.CellWidth, y * GameData.CellHeight);
         }
 
         private static void GenerateRandomPos(out int x, out int y)
@@ -125,7 +123,7 @@ namespace BomberLib.Levels
                 GenerateRandomPos(out x, out y);
                 if (IsAllowed(x, y))
                 {
-                    _currentMap.Cells[x, y] = new TreeCell();
+                    _currentMap.Cells[x, y] = new TreeCell(x*GameData.CellWidth, y*GameData.CellHeight);
                     treesNum--;
                 }
             }
@@ -138,7 +136,7 @@ namespace BomberLib.Levels
                 for (int j = 1; j < Height - 1; j++)
                 {
                     if (_currentMap.Cells[i, j] == null)
-                        _currentMap.Cells[i, j] = new GrassCell();
+                        _currentMap.Cells[i, j] = new GrassCell(i * GameData.CellWidth, j * GameData.CellHeight);
                 }
             }
         }
@@ -150,7 +148,7 @@ namespace BomberLib.Levels
                 for (int j = 1; j < Height - 1; j++)
                 {
                     if (i % 2 == 0 && j % 2 == 0)
-                        _currentMap.Cells[i, j] = new RockCell();
+                        _currentMap.Cells[i, j] = new RockCell(i * GameData.CellWidth, j * GameData.CellHeight);
                 }
             }
         }
@@ -159,14 +157,14 @@ namespace BomberLib.Levels
         {
             for (int i = 0; i < Width; i++)
             {
-                _currentMap.Cells[i, 0] = new RockCell();
-                _currentMap.Cells[i, Height - 1] = new RockCell();
+                _currentMap.Cells[i, 0] = new RockCell(i * GameData.CellWidth, 0);
+                _currentMap.Cells[i, Height - 1] = new RockCell(i * GameData.CellWidth, (Height - 1) * GameData.CellHeight);
             }
 
             for (int i = 0; i < Height; i++)
             {
-                _currentMap.Cells[0, i] = new RockCell();
-                _currentMap.Cells[Width - 1, i] = new RockCell();
+                _currentMap.Cells[0, i] = new RockCell(0, i * GameData.CellHeight);
+                _currentMap.Cells[Width - 1, i] = new RockCell((Width - 1) * GameData.CellWidth, i * GameData.CellHeight);
             }
         }
     }

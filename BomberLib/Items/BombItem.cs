@@ -5,7 +5,7 @@ namespace BomberLib.Items
     public class BombItem : Item
     {
         private readonly int _bombNum;
-        public BombItem(int bombNum) : base(GameData.GraphicsFactory.CreateBombItemSprite(bombNum))
+        public BombItem(float x, float y, int bombNum) : base(GameData.GraphicsFactory.CreateBombItemSprite(x, y, bombNum))
         {
             _bombNum = bombNum;
         }

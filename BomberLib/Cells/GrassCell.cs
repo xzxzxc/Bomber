@@ -6,30 +6,28 @@ namespace BomberLib.Cells
     [Serializable]
     public class GrassCell:Cell
     {
-        public GrassCell() : base(GameData.GraphicsFactory.CreateGrassSprite())
+        public GrassCell(float x, float y) : base(GameData.GraphicsFactory.CreateGrassSprite(x, y))
         {
-            _isMovable = true;
+            IsMovable = true;
         }
 
         public override void Boom()
         {
 
             base.Boom();
-            ChangeSprite(GameData.GraphicsFactory.CreateGrassAdterBoomSprite());
-            _sprite.DrawAnimatonOneTime(0, X, Y);
+            ChangeSprite(GameData.GraphicsFactory.CreateGrassAdterBoomSprite(X, Y));
+            Sprite.StartDrawingAnimationToEnd(0);
         }
 
         public override void UnBoom()
         {
             base.UnBoom();
-            ChangeSprite(GameData.GraphicsFactory.CreateGrassSprite());
+            ChangeSprite(GameData.GraphicsFactory.CreateGrassSprite(X, Y));
         }
 
         protected GrassCell(SerializationInfo propertyBag, StreamingContext context) : base(propertyBag, context)
         {
-            _sprite = GameData.GraphicsFactory.CreateGrassSprite();
-            X = propertyBag.GetSingle("X");
-            Y = propertyBag.GetSingle("Y");
+            Sprite = GameData.GraphicsFactory.CreateGrassSprite(propertyBag.GetSingle("X"), propertyBag.GetSingle("Y"));
         }
     }
 }

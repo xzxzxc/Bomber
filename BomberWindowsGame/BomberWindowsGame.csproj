@@ -84,7 +84,6 @@
     <Compile Include="Sound\GameMusic.cs" />
     <Compile Include="Sound\GameSoundEffect.cs" />
     <Compile Include="Sound\GameSoundFactory.cs" />
-    <Compile Include="ToBeDrawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -93,7 +92,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BomberLib\BomberLib.csproj">
+    <ProjectReference Include="..\BomberLib\BomberLib.csproj">
       <Project>{a85e3d8e-9338-4f51-82d8-4441ad5a1c5b}</Project>
       <Name>BomberLib</Name>
     </ProjectReference>

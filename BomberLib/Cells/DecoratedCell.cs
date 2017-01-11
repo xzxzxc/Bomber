@@ -13,7 +13,34 @@ namespace BomberLib.Cells
         protected Item _item;
         public Item Item => _item;
 
-        protected DecoratedCell(Sprite sprite, Item hidenItem) : base(GameData.GraphicsFactory.CreateGrassSprite())
+        public override float X
+        {
+            get
+            {
+                return base.X;
+            }
+            set
+            {
+                base.X = value;
+                if (_item != null)_item.X = value + GameData.XStandartOffset;
+                if (PrimarySprite != null) PrimarySprite.X = value;
+            }
+        }
+
+        public override float Y {
+            get
+            {
+                return base.Y;
+            }
+            set
+            {
+                base.Y = value;
+                if (_item != null) _item.Y = value + GameData.YStandartOffset;
+                if (PrimarySprite != null) PrimarySprite.Y = value;
+            }
+        }
+
+        protected DecoratedCell(Sprite sprite, Item hidenItem) : base(GameData.GraphicsFactory.CreateGrassSprite(sprite.X, sprite.Y))
         {
             PrimarySprite = sprite;
             _item = hidenItem;
@@ -30,14 +57,13 @@ namespace BomberLib.Cells
 
         protected DecoratedCell(SerializationInfo propertyBag, StreamingContext context) : base(propertyBag, context)
         {
-            _sprite = GameData.GraphicsFactory.CreateGrassSprite();
-            X = propertyBag.GetSingle("X");
-            Y = propertyBag.GetSingle("Y");
+            Sprite = GameData.GraphicsFactory.CreateGrassSprite(propertyBag.GetSingle("X"), propertyBag.GetSingle("Y"));
             try
             {
-                _item = Item.CreateByHashCode(propertyBag.GetInt32("ItemHashCode"));
+                _item = Item.CreateByHashCode(propertyBag.GetSingle("X") + GameData.XStandartOffset,
+                    propertyBag.GetSingle("Y") + GameData.YStandartOffset, propertyBag.GetInt32("ItemHashCode"));
             }
-            catch (Exception)
+            catch (ArgumentOutOfRangeException)
             {
                 // ignored
             }
@@ -46,10 +72,10 @@ namespace BomberLib.Cells
         public override void Boom()
         {
             base.Boom();
+            IsMovable = true;
+            ChangeSprite(GameData.GraphicsFactory.CreateGrassAdterBoomSprite(X, Y));
             PrimarySprite = null;
-            _isMovable = true;
-            ChangeSprite(GameData.GraphicsFactory.CreateGrassAdterBoomSprite());
-            _sprite.DrawAnimatonOneTime(0, X, Y);
+            Sprite.StartDrawingAnimationToEnd(0);
         }
 
         public void ClearItem()
@@ -60,15 +86,15 @@ namespace BomberLib.Cells
         public override void UnBoom()
         {
             base.UnBoom();
-            _isMovable = false;
-            ChangeSprite(GameData.GraphicsFactory.CreateGrassSprite());
+            IsMovable = false;
+            ChangeSprite(GameData.GraphicsFactory.CreateGrassSprite(X, Y));
         }
 
-        protected override void Draw(float x, float y)
+        public override void Draw()
         {
-            base.Draw(x, y);
-            Item?.Draw(x + 0.1f * GameData.CellWidth, y + 0.1f * GameData.CellHeight);
-            PrimarySprite?.Draw(x, y);
+            base.Draw();
+            Item?.Draw();
+            PrimarySprite?.Draw();
         }
 
         public override void MoveLeft(float speed)

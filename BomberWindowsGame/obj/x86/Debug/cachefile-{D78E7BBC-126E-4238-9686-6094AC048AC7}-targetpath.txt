@@ -1,4 +1,3 @@
-Content\Courier New.xnb
 Content\Images\bomb1.xnb
 Content\Images\door.xnb
 Content\Images\explosion.xnb
@@ -13,10 +12,6 @@ Content\Images\heart.xnb
 Content\Images\bomb1_small.xnb
 Content\Images\pause_screen.xnb
 Content\Images\start_screen.xnb
-Content\Sounds\explosion1.xnb
-Content\Sounds\explosion2.xnb
-Content\Sounds\explosion3.xnb
-Content\Sounds\music.xnb
 Content\Images\enemy.xnb
 Content\Images\enemy_moving.xnb
 Content\Images\bomb2.xnb
@@ -30,3 +25,8 @@ Content\Images\game_over_screen.xnb
 Content\Images\game_win_screen.xnb
 Content\Images\enemy_die.xnb
 Content\Images\player_die.xnb
+Content\Courier New.xnb
+Content\Sounds\explosion1.xnb
+Content\Sounds\explosion2.xnb
+Content\Sounds\explosion3.xnb
+Content\Sounds\music.xnb

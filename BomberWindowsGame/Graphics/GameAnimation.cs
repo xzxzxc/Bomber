@@ -11,22 +11,25 @@ namespace BomberWindowsGame.Graphics
         public Rectangle SourceRectangle;
         public Rectangle DestinationRectangle;
 
-        public GameAnimation(Texture2D texture, int rows, int columns, TimeSpan animationTime):base(rows, columns, animationTime)
+        public GameAnimation(Texture2D texture, float x, float y,  int rows, int columns, TimeSpan animationTime):base(x, y, rows, columns, animationTime)
         {
             Texture = texture;
         }
 
-        public override void Draw(float x, float y)
+        public override void Draw()
         {
+            base.Draw();
+
             int width = Texture.Width / Columns;
             int height = Texture.Height / Rows;
-            int row = (int)((float)CurrentFrame / (float)Columns);
+            int row = (int)(CurrentFrame / (float)Columns);
             int column = CurrentFrame % Columns;
 
             SourceRectangle = new Rectangle(width * column, height * row, width, height);
-            DestinationRectangle = new Rectangle((int)x, (int)y, width, height);
+            DestinationRectangle = new Rectangle((int)X, (int)Y, width, height);
 
-            ToBeDrawn.Animations.Add(this);
-        }
+            
+            BomerWindowsGame.SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
+         }
     }
 }

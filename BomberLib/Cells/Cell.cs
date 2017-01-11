@@ -7,40 +7,47 @@ using BomberLib.Interfaces;
 namespace BomberLib.Cells
 {
     [Serializable]
-    public abstract class Cell : IDrawable, ICoordinateMovable, ISerializable
+    public abstract class Cell : IDrawable, IMovable, ISerializable
     {
-        [NonSerialized] protected Sprite _sprite;
-        public Sprite Sprite => _sprite;
-        [NonSerialized] public Bomb Bomb;
-        protected bool _isMovable;
-        public bool IsMovable => _isMovable;
+        public Sprite Sprite { get; protected set; }
 
-        public float X
+        [NonSerialized] public Bomb Bomb;
+        public bool IsMovable { get; protected set; }
+
+        public virtual float X
         {
-            get { return _sprite.X; }
-            set { _sprite.X = value; }
+            get { return Sprite.X; }
+            set
+            {
+                Sprite.X = value;
+                if (Bomb != null) Bomb.X = value;
+            }
         }
 
-        public float Y
+        public virtual float Y
         {
-            get { return _sprite.Y; }
-            set { _sprite.Y = value; }
+            get { return Sprite.Y; }
+            set
+            {
+                Sprite.Y = value;
+                if (Bomb != null) Bomb.Y = value;
+            }
         }
 
         protected Cell(Sprite sprite)
         {
-            _sprite = sprite;
-            _isMovable = false;
+            Sprite = sprite;
+            IsMovable = false;
         }
 
         protected void ChangeSprite(Sprite newSprite)
         {
-            _sprite.StopAnimation();
+            Sprite.StopAnimation();
             float x = X;
             float y = Y;
-            _sprite = newSprite;
-            _sprite.X = x;
-            _sprite.Y = y;
+            Sprite = newSprite;
+            Sprite.X = x;
+            Sprite.Y = y;
         }
 
         public bool TryPlantBomb(Bomb bomb)
@@ -60,13 +67,13 @@ namespace BomberLib.Cells
         {
             foreach (var enemie in GameData.Enemies.ToArray())
             {
-                if (this == GameData.CurrentMap.GetCell(enemie.X, enemie.Y))
+                if (this == enemie.Cell)
                     enemie.Kill();
             }
 
-            if (this == GameData.CurrentMap.GetCell(GameData.Player.X, GameData.Player.Y))
+            if (this == GameData.Player.Cell)
             {
-                _sprite.DrawAnimatonOneTime(0, X, Y); // Boom Animation
+                Sprite.StartDrawingAnimationToEnd(0); // Boom Animation
                 GameData.Player.Kill();
             }
         }
@@ -77,48 +84,42 @@ namespace BomberLib.Cells
             ClearBomb();
         }
 
-
-        public void Draw()
+        public virtual void Draw()
         {
-            Draw(X, Y);
-        }
-
-        protected virtual void Draw(float x, float y)
-        {
-            _sprite.Draw(x, y);
-            Bomb?.Draw(x + 0.1f*GameData.CellWidth, y + 0.1f*GameData.CellHeight);
+            Sprite.Draw();
+            Bomb?.Draw();
         }
 
         public virtual void MoveLeft(float speed)
         {
-            _sprite.MoveLeft(speed);
+            X -= speed;
         }
 
         public virtual void MoveRight(float speed)
         {
-            _sprite.MoveRight(speed);
+            X += speed;
         }
 
         public virtual void MoveUp(float speed)
         {
-            _sprite.MoveUp(speed);
+            Y -= speed;
         }
 
         public virtual void MoveDown(float speed)
         {
-            _sprite.MoveDown(speed);
+            Y += speed;
         }
 
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("IsMovable", _isMovable);
+            info.AddValue("IsMovable", IsMovable);
             info.AddValue("X", X);
             info.AddValue("Y", Y);
         }
 
         protected Cell(SerializationInfo propertyBag, StreamingContext context)
         {
-            _isMovable = propertyBag.GetBoolean("IsMovable");
+            IsMovable = propertyBag.GetBoolean("IsMovable");
         }
     }
 }

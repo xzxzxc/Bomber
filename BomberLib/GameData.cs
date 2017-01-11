@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BomberLib.Charackters;
+using BomberLib.Characters;
 using BomberLib.Graphics;
 using BomberLib.Levels;
 using BomberLib.Sound;
@@ -49,6 +49,8 @@ namespace BomberLib
         public static float WindowHeight;
         public static float XMapOffset;
         public static float YMapOffset;
+        public static float XStandartOffset => CellWidth * 0.15f;
+        public static float YStandartOffset => CellHeight * 0.10f;
 
         public static void SetPlayerPositionToStart()
         {

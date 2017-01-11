@@ -48,3 +48,53 @@ C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberW
 C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\game_win_screen.xnb
 C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\enemy_die.xnb
 C:\Users\Andrew  Rybalko\Documents\Visual Studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGame\bin\x86\Debug\Content\Images\player_die.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\obj\x86\Debug\BomberWindowsGame.exe
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\obj\x86\Debug\BomberWindowsGame.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb1.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\door.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\explosion.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\grass.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\player.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\rock.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\tree.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\grass_after_boom.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\player_moving.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb1_animation.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\heart.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb1_small.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\pause_screen.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\start_screen.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\enemy.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\enemy_moving.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb2.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb2_animation.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb2_small.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb3.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb3_animation.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\bomb3_small.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\die_screen.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\game_over_screen.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\game_win_screen.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\enemy_die.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Images\player_die.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Courier New.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Sounds\explosion1.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Sounds\explosion2.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Sounds\explosion3.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Content\Sounds\music.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\BomberWindowsGame.exe
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\BomberWindowsGame.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\BomberLib.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\BomberLib.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\obj\x86\Debug\BomberWindowsGame.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt

@@ -1,34 +1,33 @@
 ﻿using System;
+using System.Dynamic;
 using BomberLib.Graphics;
 using BomberLib.Interfaces;
 
 namespace BomberLib.Items
 {
-    public abstract class Item:ICoordinateDrawable, ICoordinateMovable
+    public abstract class Item:IDrawable, IMovable
     {
-        //public float Width => _sprite.Width;
-        //public float Height => _sprite.Height;
         private readonly Sprite _sprite;
-        //public float X { get; set; }
-        //public float Y { get; set; }
+        public float X { set { _sprite.X = value; } }
+        public float Y { set { _sprite.Y = value; } }
 
         protected Item(Sprite sprite)
         {
             _sprite = sprite;
         }
 
-        public static Item CreateByHashCode(int hashCode)
+        public static Item CreateByHashCode(float x, float y, int hashCode)
         {
             switch (hashCode)
             {
                 case 0:
-                    return new BombItem(0);
+                    return new BombItem(x, y, 1);
                 case 1:
-                    return new BombItem(1);
+                    return new BombItem(x, y, 2);
                 case 2:
-                    return new BombItem(2);
+                    return new BombItem(x, y, 3);
                 case 3:
-                    return new Door();
+                    return new Door(x, y);
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -36,9 +35,9 @@ namespace BomberLib.Items
 
         public abstract override int GetHashCode();
 
-        public void Draw(float x, float y)
+        public void Draw()
         {
-            _sprite.Draw(x, y);
+            _sprite.Draw();
         }
 
         public void MoveLeft(float speed)

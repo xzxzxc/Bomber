@@ -1,79 +1,82 @@
 ﻿using System;
-using System.Threading;
 using BomberLib.Interfaces;
 
 namespace BomberLib.Graphics
 {
-    public delegate void  AnimationDelegate();
-    public abstract class Animation: ICoordinateDrawable
+    public delegate void AnimationDelegate();
+    public abstract class Animation: IDrawable
     {
-        private Thread _clockThread;
-        public readonly TimeSpan AnimationTime;
+        private bool InCycle;
+        private bool IsEnd;
+        private DateTime _prevTime;
+        private readonly TimeSpan _animationTime;
         protected readonly int Rows;
         protected readonly int Columns;
-        public readonly int TotalFrames;
+        private readonly int _totalFrames;
         protected int CurrentFrame;
-        public event AnimationDelegate EndAnimation;
+        protected internal float X;
+        protected internal float Y;
+        public event AnimationDelegate EndAnimation; 
 
-
-        protected Animation(int rows, int columns, TimeSpan animationTime)
+        protected Animation(float x, float y, int rows, int columns, TimeSpan animationTime)
         {
+            X = x;
+            Y = y;
             Rows = rows;
             Columns = columns;
             CurrentFrame = 0;
-            TotalFrames = Rows * Columns;
-            AnimationTime = animationTime;
+            _totalFrames = Rows * Columns;
+            _animationTime = animationTime;
+            IsEnd = false;
+            InCycle = false;
         }
 
         /// <summary>
         /// Drawing Current frame
         /// </summary>
-        public abstract void Draw(float x, float y);
-
-        private void UpdateToEnd()
+        public virtual void Draw()
         {
-            CurrentFrame = 0;
-            while (CurrentFrame != TotalFrames + 1)
-            {
-                Thread.Sleep(AnimationTime);
-                CurrentFrame++;
-            }
-            EndAnimation?.Invoke();
+            Update();
+            if (IsEnd && !InCycle)
+                throw new EndException();
+        }
+
+        public void Update()
+        {
+            var now = DateTime.Now;
+            if (now - _prevTime < _animationTime) return;
+            NextFrame();
+            _prevTime = now;
         }
 
         public void StartToEnd()
         {
-            _clockThread = new Thread(UpdateToEnd) { IsBackground = true };
-            _clockThread.Start();
+            IsEnd = false;
+            InCycle = false;
         }
-
-        private void UpdateInCycle()
-        {
-            CurrentFrame = 0;
-            while (true)
-            {
-                Thread.Sleep(AnimationTime);
-                NextFrame();
-            }
-        }
-
-
+        
         private void NextFrame()
         {
             CurrentFrame++;
-            if (CurrentFrame == TotalFrames)
-                CurrentFrame = 0;
+            if (CurrentFrame != _totalFrames) return;
+            CurrentFrame = 0;
+            IsEnd = true;
+            EndAnimation?.Invoke();
         }
 
         public void StartInCycle()
         {
-            _clockThread = new Thread(UpdateInCycle) { IsBackground = true };
-            _clockThread.Start();
+            InCycle = true;
+            IsEnd = false;
         }
 
         public void Stop()
         {
-             _clockThread.Abort();
+            IsEnd = true;
+            InCycle = false;
         }
+
     }
+
+    public class EndException : Exception { }
 }

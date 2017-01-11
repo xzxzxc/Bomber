@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using BomberLib.Charackters;
+using BomberLib.Characters;
 using BomberLib.Levels;
 
 namespace BomberLib

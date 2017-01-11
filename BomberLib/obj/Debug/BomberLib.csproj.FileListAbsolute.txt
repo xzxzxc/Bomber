@@ -5,3 +5,10 @@ C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberL
 C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Debug\BomberLib.dll
 C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Debug\BomberLib.pdb
 C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Debug\BomberLib.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberLib\bin\Debug\BomberLib.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberLib\bin\Debug\BomberLib.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberLib\obj\Debug\BomberLib.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberLib\obj\Debug\BomberLib.Resources.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberLib\obj\Debug\BomberLib.csproj.GenerateResource.Cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberLib\obj\Debug\BomberLib.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberLib\obj\Debug\BomberLib.pdb

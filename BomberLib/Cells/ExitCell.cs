@@ -7,14 +7,14 @@ namespace BomberLib.Cells
     [Serializable]
     public class ExitCell : TreeCell
     {
-        public ExitCell() : base(new Door())
+        public ExitCell(float x, float y) : base(x, y, new Door(x, y))
         {
         }
 
         public override void UnBoom()
         {
             base.UnBoom();
-            _item = new Door();
+            _item = new Door(X, Y);
         }
 
         private ExitCell(SerializationInfo propertyBag, StreamingContext context):base(propertyBag, context) { }

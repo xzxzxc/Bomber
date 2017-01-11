@@ -8,28 +8,28 @@ namespace BomberLib.Graphics
         // Sprites
         //
 
-        public abstract Sprite CreateRectangleSprite(string colorName, float width, float height);
+        public abstract Sprite CreateRectangleSprite(float x, float y, string colorName, float width, float height);
 
         // Charackters
-        public abstract Sprite CreatePlayerSprite();
-        public abstract Sprite CreateEnemySprite();
+        public abstract Sprite CreatePlayerSprite(float x, float y);
+        public abstract Sprite CreateEnemySprite(float x, float y);
 
         // Cells
-        public abstract Sprite CreateTreeSprite();
-        public abstract Sprite CreateRockSprite();
-        public abstract Sprite CreateGrassSprite();
-        public abstract Sprite CreateGrassAdterBoomSprite();
+        public abstract Sprite CreateTreeSprite(float x, float y);
+        public abstract Sprite CreateRockSprite(float x, float y);
+        public abstract Sprite CreateGrassSprite(float x, float y);
+        public abstract Sprite CreateGrassAdterBoomSprite(float x, float y);
 
         // Items
-        public abstract Sprite CreateDoorSprite();
-        public abstract Sprite CreateBombItemSprite(int num);
+        public abstract Sprite CreateDoorSprite(float x, float y);
+        public abstract Sprite CreateBombItemSprite(float x, float y, int num);
 
         // Bombs
-        public abstract Sprite CreateBombSprite(int num);
+        public abstract Sprite CreateBombSprite(float x, float y, int num);
 
         // Status Line
-        public abstract Sprite CreateHeartSprite();
-        public abstract Sprite CreateBombSmallSprite(int num);
+        public abstract Sprite CreateHeartSprite(float x, float y);
+        public abstract Sprite CreateBombSmallSprite(float x, float y, int num);
 
         // Screens
         public abstract Sprite CreatePauseScreenSprite();
@@ -41,22 +41,22 @@ namespace BomberLib.Graphics
         //
         // Text
         //
-        public abstract DrawableText CreateDrawableText(String content = "");
+        public abstract DrawableText CreateDrawableText(float x, float y, String content = "");
 
         //
         // Animations
         //
 
         // Charackters
-        protected abstract Animation CreatePlayerMoveAnimation();
-        protected abstract Animation CreatePlayerDieAnimation();
-        protected abstract Animation CreateEnemyMoveAnimation();
-        protected abstract Animation CreateEnemyDieAnimation();
+        protected abstract Animation CreatePlayerMoveAnimation(float x, float y);
+        protected abstract Animation CreatePlayerDieAnimation(float x, float y);
+        protected abstract Animation CreateEnemyMoveAnimation(float x, float y);
+        protected abstract Animation CreateEnemyDieAnimation(float x, float y);
 
         // Cells
-        protected abstract Animation CreateExplotionAnimation();
+        protected abstract Animation CreateExplotionAnimation(float x, float y);
 
         // Bombs
-        protected abstract Animation CreateBombAnimation(int num);
+        protected abstract Animation CreateBombAnimation(float x, float y, int num);
     }
 }

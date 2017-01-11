@@ -6,13 +6,11 @@ namespace BomberLib.Cells
     [Serializable]
     public class RockCell : Cell
     {
-        public RockCell() : base(GameData.GraphicsFactory.CreateRockSprite()) { }
+        public RockCell(float x, float y) : base(GameData.GraphicsFactory.CreateRockSprite(x, y)) { }
 
         protected RockCell(SerializationInfo propertyBag, StreamingContext context) : base(propertyBag, context)
         {
-            _sprite = GameData.GraphicsFactory.CreateRockSprite();
-            X = propertyBag.GetSingle("X");
-            Y = propertyBag.GetSingle("Y");
+            Sprite = GameData.GraphicsFactory.CreateRockSprite(propertyBag.GetSingle("X"), propertyBag.GetSingle("Y"));
         }
     }
 }

@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using BomberLib;
+using BomberLib.Characters;
 using BomberLib.GameInterface;
 using BomberWindowsGame.Graphics;
 using BomberWindowsGame.Sound;
@@ -17,12 +17,12 @@ namespace BomberWindowsGame
     public class BomerWindowsGame : Microsoft.Xna.Framework.Game
     {
         private readonly GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public static SpriteBatch SpriteBatch;
 
         private KeyboardState _oldState;
         private KeyboardState _newState;
 
-        private SpriteFont _font;
+        public static SpriteFont Font;
 
         public BomerWindowsGame()
         {
@@ -58,9 +58,9 @@ namespace BomberWindowsGame
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _font = Content.Load<SpriteFont>("Courier New");
+            Font = Content.Load<SpriteFont>("Courier New");
             
         }
 
@@ -72,7 +72,11 @@ namespace BomberWindowsGame
         protected override void Update(GameTime gameTime)
         {
             UpdateInput();
-
+            if (GameData.GameStatus == GameStatus.InGame)
+            {
+                EnemiesManager.UpdateAll();
+                PlayerTouchEnemyChecker.Check();
+            }
             base.Update(gameTime);
         }
 
@@ -197,20 +201,17 @@ namespace BomberWindowsGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
-            ToBeDrawn.Sprites = new List<GameSprite>();
-            ToBeDrawn.Animations = new List<GameAnimation>();
-            ToBeDrawn.Texts = new List<GameDrawableText>();
+            SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
 
             switch (GameData.GameStatus)
             {
                 case GameStatus.InGame:
                     GameData.CurrentLevel?.Draw();
-                    StatusLine.Draw(5, 5);
+                    StatusLine.Draw();
                     break;
                 case GameStatus.PlayerDead:
                     GameData.CurrentLevel?.Draw();
-                    StatusLine.Draw(5, 5);
+                    StatusLine.Draw();
                     break;
                 case GameStatus.Pause:
                     PauseScreen.Draw();
@@ -225,38 +226,14 @@ namespace BomberWindowsGame
                     DieScreen.Draw();
                     break;
                 case GameStatus.GameWin:
-                    GameWinScreen.Draw();
+                    GameWonScreen.Draw();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-
-            DrawAll();
+            
+            SpriteBatch.End();
             base.Draw(gameTime);
-        }
-
-        private void DrawAll()
-        {
-            _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
-            foreach (var sprite in ToBeDrawn.Sprites.ToArray())
-            {
-                if (sprite == null) continue;
-                if (sprite is GameRectangleSprite)
-                    _spriteBatch.Draw(sprite.myTexture, (sprite as GameRectangleSprite).Rectangle, Color.White);
-                else
-                    _spriteBatch.Draw(sprite.myTexture, sprite.SpritePosition, Color.White);
-            }
-            foreach (var animation in ToBeDrawn.Animations)
-            {
-                if (animation == null) continue;
-                _spriteBatch.Draw(animation.Texture, animation.DestinationRectangle, animation.SourceRectangle, Color.White);
-            }
-            foreach (var text in ToBeDrawn.Texts)
-            {
-                if (text == null) continue;
-                _spriteBatch.DrawString(_font, text.Text, text.TextPosition, Color.Black, 0, _font.MeasureString(text.Text)/2, 1.0f, SpriteEffects.None, 0.5f);
-            }
-            _spriteBatch.End();
         }
     }
 }

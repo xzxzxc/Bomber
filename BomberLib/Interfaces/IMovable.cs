@@ -2,12 +2,9 @@
 {
     public interface IMovable
     {
-        void MoveLeft();
-        void MoveRight();
-        void MoveUp();
-        void MoveDown();
-
-        float X { get; set; }
-        float Y { get; set; }
+        void MoveLeft(float speed);
+        void MoveRight(float speed);
+        void MoveUp(float speed);
+        void MoveDown(float speed);
     }
 }

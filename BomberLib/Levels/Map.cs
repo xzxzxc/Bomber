@@ -6,7 +6,7 @@ using BomberLib.Interfaces;
 namespace BomberLib.Levels
 {
     [Serializable]
-    public struct Map : IDrawable, ICoordinateMovable, IEnumerable, IEnumerator
+    public struct Map : IDrawable, IMovable, IEnumerable, IEnumerator
     {
         internal readonly Cell[,] Cells;
         public int CellsLengthX => Cells.GetLength(0);
@@ -34,19 +34,9 @@ namespace BomberLib.Levels
 
         internal Cell GetCell(float x, float y)
         {
-            try
-            {
-                return
-                    Cells[
-                        (int) ((x - GameData.XMapOffset)/GameData.CellWidth),
-                        (int) ((y - GameData.YMapOffset)/GameData.CellHeight)];
+            return Cells[(int) ((x - GameData.XMapOffset) / GameData.CellWidth),
+                (int) ((y - GameData.YMapOffset) / GameData.CellHeight)];
 
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
         }
 
         internal Cell GetUpperCell(Cell cell)
