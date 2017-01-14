@@ -1,6 +1,0 @@
-C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\bin\Release\BomberLib.dll
-C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\bin\Release\BomberLib.pdb
-C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Release\BomberLib.Resources.resources
-C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Release\BomberLib.csproj.GenerateResource.Cache
-C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Release\BomberLib.dll
-C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberLib\obj\Release\BomberLib.pdb

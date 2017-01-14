@@ -1,2 +1,0 @@
-C:\Users\Andrew  Rybalko\documents\visual studio 2015\Projects\BomberLib\BomberWindowsGame\BomberWindowsGameContent\obj\x86\Debug\BomberWindowsGameContent.contentprojResolveAssemblyReference.cache
-C:\Users\User\Documents\Visual Studio 2015\Projects\Bomber\BomberWindowsGameContent\obj\x86\Debug\BomberWindowsGameContent.contentprojResolveAssemblyReference.cache

@@ -97,7 +97,7 @@ namespace BomberLibrary.Cells
             Item?.Draw();
             PrimarySprite?.Draw();
         }
-
+        /*
         public override void MoveLeft(float speed)
         {
             base.MoveLeft(speed);
@@ -124,6 +124,6 @@ namespace BomberLibrary.Cells
             base.MoveDown(speed);
             Item?.MoveDown(speed);
             PrimarySprite?.MoveDown(speed);
-        }
+        }*/
     }
 }

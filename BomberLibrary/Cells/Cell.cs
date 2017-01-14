@@ -21,7 +21,7 @@ namespace BomberLibrary.Cells
             set
             {
                 Sprite.X = value;
-                if (Bomb != null) Bomb.X = value;
+                if (Bomb != null) Bomb.X = value + GameData.XStandartOffset;
             }
         }
 
@@ -32,7 +32,7 @@ namespace BomberLibrary.Cells
             set
             {
                 Sprite.Y = value;
-                if (Bomb != null) Bomb.Y = value;
+                if (Bomb != null) Bomb.Y = value + GameData.YStandartOffset;
             }
         }
 
@@ -92,22 +92,22 @@ namespace BomberLibrary.Cells
             Bomb?.Draw();
         }
 
-        public virtual void MoveLeft(float speed)
+        public void MoveLeft(float speed)
         {
             X -= speed;
         }
 
-        public virtual void MoveRight(float speed)
+        public void MoveRight(float speed)
         {
             X += speed;
         }
 
-        public virtual void MoveUp(float speed)
+        public void MoveUp(float speed)
         {
             Y -= speed;
         }
 
-        public virtual void MoveDown(float speed)
+        public void MoveDown(float speed)
         {
             Y += speed;
         }
