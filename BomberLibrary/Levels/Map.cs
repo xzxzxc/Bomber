@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Runtime.Serialization;
-using BomberLibrary.Cells;
 using BomberLibrary.Interfaces;
+using BomberLibrary.Levels.Cells;
 
 namespace BomberLibrary.Levels
 {
     [DataContract]
-    public struct Map : IDrawable, IMovable, IEnumerable, IEnumerator
+    public struct Map : IDrawable, IMovable, IEnumerable
     {
         [DataMember]
         internal readonly Cell[,] Cells;
@@ -18,8 +18,6 @@ namespace BomberLibrary.Levels
         public Map(Cell[,] cells)
         {
             Cells = cells;
-            _xEnumeratorPosition = -1;
-            _yEnumeratorPosition = -1;
         }
 
         public void Draw()
@@ -112,36 +110,11 @@ namespace BomberLibrary.Levels
             }
         }
 
-        private int _xEnumeratorPosition;
-        private int _yEnumeratorPosition;
         public IEnumerator GetEnumerator()
         {
-            return this;
+            for (int i = 0; i < Cells.GetLength(0); i++)
+                for (int j = 0; j < Cells.GetLength(1); j++)
+                    yield return Cells[i, j];
         }
-        
-        public bool MoveNext()
-        {
-            if (_xEnumeratorPosition < CellsLengthX - 1)
-            {
-                _xEnumeratorPosition++;
-                if (_yEnumeratorPosition == -1) _yEnumeratorPosition++;
-                return true;
-            }
-            if (_yEnumeratorPosition < CellsLengthY - 1)
-            {
-                _yEnumeratorPosition++;
-                _xEnumeratorPosition = 0;
-                return true;
-            }
-            return false;
-        }
-
-        public void Reset()
-        {
-            _xEnumeratorPosition = -1;
-            _yEnumeratorPosition = -1;
-        }
-
-        public object Current => Cells[_xEnumeratorPosition, _yEnumeratorPosition];
     }
 }

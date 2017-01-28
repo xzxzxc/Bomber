@@ -1,22 +1,16 @@
-﻿using BomberLibrary.Graphics;
-
-namespace BomberLibrary.GameInterface
+﻿namespace BomberLibrary.GameInterface
 {
-    public static class StartScreen
+    public class StartScreen : RealScreen
     {
-        private static Sprite _sprite;
-        private static DrawableText _text;
-
-        public static void Draw()
+        public StartScreen() : base(GameData.GraphicsFactory.CreateStartScreenSprite(), new[]
         {
-            _sprite.Draw();
-            _text.Draw();
-        }
+            GameData.ButtonFactory.CreateMenuButton(0.5f * GameData.WindowWidth,
+                0.25f * GameData.WindowHeight, "Start new Game", Game.StartNew),
 
-        public static void Load(string text)
-        {
-            _sprite = GameData.GraphicsFactory.CreateStartScreenSprite();
-            _text = GameData.GraphicsFactory.CreateDrawableText(0.5f * GameData.WindowWidth, 0.5f * GameData.WindowHeight, text);
-        }
+            GameData.ButtonFactory.CreateMenuButton(0.5f * GameData.WindowWidth,
+                0.5f * GameData.WindowHeight, "Load", Game.LoadSavedGame),
+
+            GameData.ButtonFactory.CreateMenuButton(0.5f * GameData.WindowWidth,
+                0.75f * GameData.WindowHeight, "Stop/Resume Music", GameData.GameMusic.PauseOrResume)}) { }
     }
 }

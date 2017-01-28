@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using BomberLibrary.Cells;
 using BomberLibrary.Graphics;
 using BomberLibrary.Interfaces;
 using BomberLibrary.Items;
+using BomberLibrary.Levels.Cells;
 
 namespace BomberLibrary.Characters
 {
@@ -14,7 +14,7 @@ namespace BomberLibrary.Characters
         [DataMember]
         public float X
         {
-            protected get { return Sprite.X; }
+            get { return Sprite.X; }
             set
             {
                 if (value - GameData.XMapOffset < 0)
@@ -25,7 +25,7 @@ namespace BomberLibrary.Characters
         [DataMember]
         public float Y
         {
-            protected get { return Sprite.Y; }
+            get { return Sprite.Y; }
             set
             {
                 if (value - GameData.YMapOffset < 0)

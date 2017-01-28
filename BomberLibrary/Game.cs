@@ -15,7 +15,7 @@ namespace BomberLibrary
 
         public static void Update()
         {
-            if (GameData.GameStatus == GameStatus.InGame || GameData.GameStatus == GameStatus.PlayerDead)
+            //if (GameData.GameStatus == GameStatus.InGame || GameData.GameStatus == GameStatus.PlayerDead)
                 UpdateEvent?.Invoke();
         }
 
@@ -29,7 +29,7 @@ namespace BomberLibrary
         public static void NextLevel()
         {
             if (GameData.CurrentLevelNum + 1 == GameData.MaxLevelNum)
-                GameData.GameStatus = GameStatus.GameWin;
+                GameData.CurrentScreen = GameData.Screens.GameWonScreen;
             else
             {
                 //EnemiesManager.StopLive();
@@ -41,13 +41,15 @@ namespace BomberLibrary
         private static void LoadLevel(int levelNum)
         {
             if (levelNum > GameData.MaxLevelNum)
-                throw new ArgumentOutOfRangeException("There is no level number " + levelNum.ToString());
+                throw new ArgumentOutOfRangeException("There is no level number " + levelNum);
             GameData.CurrentLevel = GameData.Levels[levelNum];
             GameData.Levels[levelNum].Create();
-            //GameData.Levels[levelNum].Load();
             GameData.ClearMapOffset();
             GameData.SetPlayerPositionToStart();
-            GameData.GameStatus = GameStatus.InGame;
+            //GameData.GameStatus = GameStatus.InGame;
+            GameData.Screens.StartScreen.UnLoad();
+            GameData.CurrentScreen = GameData.Screens.InGameScreen;
+            
         }
 
         public static void RestartLevel()
@@ -56,39 +58,34 @@ namespace BomberLibrary
             GameData.ClearMapOffset();
             GameData.SetPlayerPositionToStart();
             GameData.SetMinimalPlayerBombNumber();
-            GameData.GameStatus = GameStatus.InGame;
+            GameData.CurrentScreen = GameData.Screens.InGameScreen;
         }
 
         public static void PlayerDie()
         {
             GameData.Enemies = new List<Enemy>();
-            GameData.GameStatus = GameData.Player.Life == 0 ? GameStatus.GameOverScreen : GameStatus.PlayerDeadScreen;
+            GameData.CurrentScreen = GameData.Player.Life == 0 ? GameData.Screens.GameOverScreen :
+                GameData.Screens.DieScreen;
         }
 
         public static void Pause()
         {
             PauseEvent?.Invoke();
-            GameData.GameStatus = GameStatus.Pause;
+            GameData.CurrentScreen = GameData.Screens.PauseScreen;
         }
 
         public static void Continue()
         {
             ContinueEvent?.Invoke();
-            GameData.GameStatus = GameStatus.InGame;
+            GameData.CurrentScreen = GameData.Screens.InGameScreen;
         }
 
-        public static void Load(string startText, string pauseText, string gameOverText, string winText, string dieText)
+        public static void Load()
         {
             
             GameData.GameMusic = GameData.SoundFactory.CreateMusic();
             GameData.GameMusic.Play();
-            GameData.GameStatus = GameStatus.StartScreen;
-
-            StartScreen.Load(startText);
-            PauseScreen.Load(pauseText);
-            GameOverScreen.Load(gameOverText);
-            GameWonScreen.Load(winText);
-            DieScreen.Load(dieText);
+            GameData.CurrentScreen = GameData.Screens.StartScreen;
             StatusLine.Load(5, 5);
         }
 
@@ -110,8 +107,7 @@ namespace BomberLibrary
             }
 
             GameData.CurrentLevel.CreateEnemies();
-            //GameData.CurrentLevel.Load();
-            GameData.GameStatus = GameStatus.InGame;
+            GameData.CurrentScreen = GameData.Screens.InGameScreen;
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BomberLibrary.Graphics
+﻿namespace BomberLibrary.Graphics
 {
     public abstract class GraphicsFactory
     {
@@ -38,10 +36,12 @@ namespace BomberLibrary.Graphics
         public abstract Sprite CreateGameWinScreenSprite();
         public abstract Sprite CreateDieScreenSprite();
 
+        public abstract Sprite CreateButtonBackgroundSprite(float xCenter, float yCenter);
+
         //
         // Text
         //
-        public abstract DrawableText CreateDrawableText(float x, float y, String content = "");
+        public abstract DrawableText CreateDrawableText(float xCener, float yCenter, string content = "");
 
         //
         // Animations

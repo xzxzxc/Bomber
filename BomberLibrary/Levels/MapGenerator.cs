@@ -1,6 +1,6 @@
 ﻿using System;
-using BomberLibrary.Cells;
 using BomberLibrary.Characters;
+using BomberLibrary.Levels.Cells;
 
 namespace BomberLibrary.Levels
 {

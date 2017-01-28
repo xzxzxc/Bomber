@@ -5,7 +5,7 @@ using BomberLibrary.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace BomberCrossPlatform.Graphics
+namespace BomberMonoLibrary.Graphics
 {
     public class GameGraphicsFactory:GraphicsFactory
     {
@@ -71,15 +71,15 @@ namespace BomberCrossPlatform.Graphics
             return new GameSprite(x, y, _content.Load<Texture2D>("Images\\door"));
         }
 
-        public override Sprite CreateBombItemSprite(float x, float y, int bombNum)
+        public override Sprite CreateBombItemSprite(float x, float y, int num)
         {
-            return new GameSprite(x, y, _content.Load<Texture2D>($"Images\\bomb{bombNum}"));
+            return new GameSprite(x, y, _content.Load<Texture2D>($"Images\\bomb{num}"));
         }
 
-        public override Sprite CreateBombSprite(float x, float y, int bombNum)
+        public override Sprite CreateBombSprite(float x, float y, int num)
         {
-            Sprite bombSprite = CreateBombItemSprite(x, y, bombNum);
-            bombSprite.AddAnimations(CreateBombAnimation(x, y, bombNum));
+            Sprite bombSprite = CreateBombItemSprite(x, y, num);
+            bombSprite.AddAnimations(CreateBombAnimation(x, y, num));
             return bombSprite;
         }
 
@@ -88,9 +88,9 @@ namespace BomberCrossPlatform.Graphics
             return new GameSprite(x, y, _content.Load<Texture2D>("Images\\heart"));
         }
 
-        public override Sprite CreateBombSmallSprite(float x, float y, int bombNum)
+        public override Sprite CreateBombSmallSprite(float x, float y, int num)
         {
-            return new GameSprite(x, y, _content.Load<Texture2D>($"Images\\bomb{bombNum}_small"));
+            return new GameSprite(x, y, _content.Load<Texture2D>($"Images\\bomb{num}_small"));
         }
 
         public override Sprite CreatePauseScreenSprite()
@@ -118,9 +118,15 @@ namespace BomberCrossPlatform.Graphics
             return new GameSprite(0, 0, _content.Load<Texture2D>("Images\\die_screen"));
         }
 
-        public override DrawableText CreateDrawableText(float x, float y, String text="")
+        public override Sprite CreateButtonBackgroundSprite(float xCenter, float yCenter)
         {
-            return new GameDrawableText(x, y, text);
+            var texture = _content.Load<Texture2D>("Images\\button");
+            return new GameSprite(xCenter - texture.Width / 2f, yCenter - texture.Height / 2f, texture);
+        }
+
+        public override DrawableText CreateDrawableText(float x, float y, string content="")
+        {
+            return new GameDrawableText(x, y, content);
         }
 
         protected override Animation CreatePlayerMoveAnimation(float x, float y)
@@ -147,9 +153,9 @@ namespace BomberCrossPlatform.Graphics
                 TimeSpan.FromMilliseconds(150));
         }
 
-        protected override Animation CreateBombAnimation(float x, float y, int bombNum)
+        protected override Animation CreateBombAnimation(float x, float y, int num)
         {
-            return new GameAnimation(_content.Load<Texture2D>($"Images\\bomb{bombNum}_animation"), x, y, 1, 2, 
+            return new GameAnimation(_content.Load<Texture2D>($"Images\\bomb{num}_animation"), x, y, 1, 2, 
                 TimeSpan.FromMilliseconds(100));
         }
 
@@ -164,5 +170,7 @@ namespace BomberCrossPlatform.Graphics
             _content = content;
             _graphicsDevice = graphicsDevice;
         }
+
+
     }
 }

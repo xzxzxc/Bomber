@@ -69,7 +69,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: rybalko.andriy@gmail.com (8YB2EV92N5)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
@@ -81,6 +81,10 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <IOSDebugOverWiFi>false</IOSDebugOverWiFi>
+    <CodesignProvision>9a03821f-6712-4e29-b45e-2f87123e85f3</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
+    <IpaPackageName>Bomber</IpaPackageName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -92,7 +96,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Game1.cs" />
+    <Compile Include="BomberGameIOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,11 +105,23 @@
     <None Include="Info.plist" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Default.png" />
-    <BundleResource Include="GameThumbnail.png" />
+    <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <ProjectReference Include="..\BomberMonoLibrary\BomberMonoLibrary.csproj">
+      <Project>{7C341860-6767-4B14-8277-34E8420B8178}</Project>
+      <Name>BomberMonoLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BomberLibrary\BomberLibrary.csproj">
+      <Project>{A5F6D0C1-8AB8-46C9-98F1-D341F9A53393}</Project>
+      <Name>BomberLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\GameThumbnail.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

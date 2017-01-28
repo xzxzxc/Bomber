@@ -13,7 +13,7 @@ namespace BomberCrossPlatform
         [STAThread]
         static void Main()
         {
-            using (var game = new BomerGame())
+            using (var game = new BomerGameCrossPlatform())
                 game.Run();
         }
     }

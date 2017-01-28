@@ -3,7 +3,7 @@ using BomberLibrary.Bombs;
 using BomberLibrary.Graphics;
 using BomberLibrary.Interfaces;
 
-namespace BomberLibrary.Cells
+namespace BomberLibrary.Levels.Cells
 {
     [DataContract]
     public abstract class Cell : IDrawable, IMovable
@@ -63,6 +63,7 @@ namespace BomberLibrary.Cells
         public void ClearBomb()
         {
             Bomb = null;
+            // GC.Collect();
         }
 
         public virtual void Boom()

@@ -1,5 +1,5 @@
 ﻿using BomberLibrary.Bombs;
-using BomberLibrary.Cells;
+using BomberLibrary.Levels.Cells;
 
 namespace BomberLibrary.Levels
 {

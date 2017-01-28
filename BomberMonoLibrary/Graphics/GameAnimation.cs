@@ -3,7 +3,7 @@ using BomberLibrary.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace BomberCrossPlatform.Graphics
+namespace BomberMonoLibrary.Graphics
 {
     public class GameAnimation:Animation
     {

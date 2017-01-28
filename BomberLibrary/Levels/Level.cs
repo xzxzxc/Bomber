@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using BomberLibrary.Cells;
 using BomberLibrary.Characters;
 using BomberLibrary.Interfaces;
+using BomberLibrary.Levels.Cells;
 using JetBrains.Annotations;
 
 namespace BomberLibrary.Levels

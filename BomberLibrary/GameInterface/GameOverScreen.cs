@@ -1,22 +1,11 @@
-﻿using BomberLibrary.Graphics;
-
-namespace BomberLibrary.GameInterface
+﻿namespace BomberLibrary.GameInterface
 {
-    public static class GameOverScreen
+    public class GameOverScreen:RealScreen
     {
-        private static Sprite _sprite;
-        private static DrawableText _text;
-
-        public static void Draw()
+        public GameOverScreen() : base(GameData.GraphicsFactory.CreateGameOverScreenSprite(),
+            new[]{GameData.ButtonFactory.CreateMenuButton(0.5f * GameData.WindowWidth,
+                0.5f * GameData.WindowHeight, "Start New Game", Game.StartNew)})
         {
-            _sprite.Draw();
-            _text.Draw();
-        }
-
-        public static void Load(string text)
-        {
-            _sprite = GameData.GraphicsFactory.CreateGameOverScreenSprite();
-            _text = GameData.GraphicsFactory.CreateDrawableText(0.5f * GameData.WindowWidth, 0.5f * GameData.WindowHeight, text);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace BomberCrossPlatform.Graphics
+namespace BomberMonoLibrary.Graphics
 {
     public static class ColorsManager
     {

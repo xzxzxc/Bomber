@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using BomberLibrary.Characters;
+using BomberLibrary.Controls;
+using BomberLibrary.GameInterface;
 using BomberLibrary.Graphics;
 using BomberLibrary.Levels;
 using BomberLibrary.Sound;
@@ -9,7 +11,6 @@ namespace BomberLibrary
 {
     public static class GameData
     {
-        public static GameStatus GameStatus;
         private static GraphicsFactory _graphicsFactory;
         public static GraphicsFactory GraphicsFactory
         {
@@ -31,6 +32,17 @@ namespace BomberLibrary
                 return _soundFactory;
             }
             set { _soundFactory = value; }
+        }
+        private static ButtonFactory _buttonFactory;
+        public static ButtonFactory ButtonFactory
+        {
+            get
+            {
+                if (_buttonFactory == null)
+                    throw new NullReferenceException("Button factory is null now");
+                return _buttonFactory;
+            }
+            set { _buttonFactory = value; }
         }
 
         public static Music GameMusic;
@@ -69,6 +81,29 @@ namespace BomberLibrary
         {
             XMapOffset = 0;
             YMapOffset = 0;
+        }
+
+        private static IScreen _screen;
+
+        public static IScreen CurrentScreen
+        {
+            get { return _screen; }
+            set
+            {
+                _screen?.UnLoad();
+                _screen = value;
+                _screen.Load();
+            }
+        }
+
+        public static class Screens
+        {
+            public static IScreen StartScreen { get; } = new StartScreen() as IScreen;
+            public static IScreen DieScreen { get; } = new DieScreen() as IScreen;
+            public static IScreen GameOverScreen { get; } = new GameOverScreen() as IScreen;
+            public static IScreen GameWonScreen { get; } = new GameWonScreen() as IScreen;
+            public static IScreen PauseScreen { get; } = new PauseScreen() as IScreen;
+            public static IScreen InGameScreen { get; } = new ProxyInGameScreen() as IScreen;
         }
     }
 }

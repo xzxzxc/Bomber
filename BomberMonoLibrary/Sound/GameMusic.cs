@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Audio;
 using SoundEffect = Microsoft.Xna.Framework.Audio.SoundEffect;
 
-namespace BomberCrossPlatform.Sound
+namespace BomberMonoLibrary.Sound
 {
     public class GameMusic : Music
     {

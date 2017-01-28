@@ -11,6 +11,7 @@ namespace BomberLibrary.Characters
         private int _moveCounter;
         private int _moveDir;
         private static readonly Random Rnd = new Random();
+        private bool _stopMoving = false;
 
         public Enemy(float x, float y) : base(GameData.GraphicsFactory.CreateEnemySprite(x, y))
         {
@@ -35,6 +36,7 @@ namespace BomberLibrary.Characters
 
         private void Update()
         {
+            if (_stopMoving) return;
             var now = DateTime.Now;
             if (now - _previousTime < _sleepTime) return;
             _previousTime = now;
@@ -66,6 +68,7 @@ namespace BomberLibrary.Characters
         public void AbortMoving()
         {
             Sprite.StopAnimation();
+            _stopMoving = true;
         }
 
         private void MoveSomewhere()
@@ -106,7 +109,6 @@ namespace BomberLibrary.Characters
             public static void RemoveFromGameData()
             {
                 GameData.Enemies.Remove(KilledEnemies.Dequeue());
-                GC.Collect();
             }
         }
     }

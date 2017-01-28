@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using BomberLibrary.Items;
 
-namespace BomberLibrary.Cells
+namespace BomberLibrary.Levels.Cells
 {
     [DataContract]
     public class ExitCell : TreeCell

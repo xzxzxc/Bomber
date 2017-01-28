@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using BomberLibrary.Cells;
 using BomberLibrary.Graphics;
 using BomberLibrary.Interfaces;
+using BomberLibrary.Levels.Cells;
 using BomberLibrary.Sound;
 
 namespace BomberLibrary.Bombs
@@ -14,7 +14,7 @@ namespace BomberLibrary.Bombs
         private readonly Sprite _sprite;
         private readonly SoundEffect _soundEffect;
         private DateTime _clockStartedTime;
-        private TimeSpan _bewforeBoom;
+        private TimeSpan _beforeBoom;
         public event Boom Boom;
         public readonly int Radious;
         private CancellationTokenSource _cancellationTokenSource;
@@ -27,7 +27,7 @@ namespace BomberLibrary.Bombs
         {
             _sprite = sprite;
             _soundEffect = soundEffect;
-            _bewforeBoom = time;
+            _beforeBoom = time;
             Radious = radious;
             _sprite.StartDrawingAnimationInCycle(0);
             Game.PauseEvent += StopClock;
@@ -47,12 +47,12 @@ namespace BomberLibrary.Bombs
             _sprite.Draw();
         }
 
-        private async void StartClock()
+        private async Task StartClock()
         {
             _clockStartedTime = DateTime.Now;
             try
             {
-                await Task.Delay(_bewforeBoom, _cancellationToken);
+                await Task.Delay(_beforeBoom, _cancellationToken);
             }
             catch (TaskCanceledException)
             {
@@ -61,19 +61,26 @@ namespace BomberLibrary.Bombs
             _soundEffect.Play();
             Boom?.Invoke();
             _sprite.StopAnimation();
+            Finialize();
         }
 
         public void StopClock()
         {
             _sprite.StopAnimation();
             _cancellationTokenSource.Cancel();
-            _bewforeBoom = DateTime.Now - _clockStartedTime;
+            _beforeBoom = DateTime.Now - _clockStartedTime;
         }
 
         private void ContinueClock()
         {
             _sprite.StartDrawingAnimationInCycle(0);
             StartNewClockTask();
+        }
+
+        private void Finialize()
+        {
+            Game.PauseEvent -= StopClock;
+            Game.ContinueEvent -= ContinueClock;
         }
     }
 }

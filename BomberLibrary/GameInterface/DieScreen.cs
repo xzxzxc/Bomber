@@ -1,22 +1,11 @@
-﻿using BomberLibrary.Graphics;
-
-namespace BomberLibrary.GameInterface
+﻿namespace BomberLibrary.GameInterface
 {
-    public static class DieScreen
+    public class DieScreen:RealScreen
     {
-        private static Sprite _sprite;
-        private static DrawableText _text;
-
-        public static void Draw()
+        public DieScreen() : base(GameData.GraphicsFactory.CreateDieScreenSprite(),
+            new []{GameData.ButtonFactory.CreateMenuButton(0.5f * GameData.WindowWidth,
+                0.5f * GameData.WindowHeight, "Restart level", Game.RestartLevel)})
         {
-            _sprite.Draw();
-            _text.Draw();
-        }
-
-        public static void Load(string text)
-        {
-            _sprite = GameData.GraphicsFactory.CreateDieScreenSprite();
-            _text = GameData.GraphicsFactory.CreateDrawableText(0.5f * GameData.WindowWidth, 0.5f * GameData.WindowHeight, text);
         }
     }
 }

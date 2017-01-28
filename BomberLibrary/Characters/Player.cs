@@ -10,20 +10,24 @@ namespace BomberLibrary.Characters
         [DataMember]
         public byte Life = 5;
 
+        public bool Killed;
+
         public Player(float x, float y, int bomb1Num=10, int bomb2Num=2, int bomb3Num=0) : base(GameData.GraphicsFactory.CreatePlayerSprite(x, y))
         {
             Bomb1Num = bomb1Num;
             Bomb2Num = bomb2Num;
             Bomb3Num = bomb3Num;
-            Game.UpdateEvent += PlayerTouchEnemyChecker.Check;
+            //Game.UpdateEvent += PlayerTouchEnemyChecker.Check;
+            Killed = false;
         }
 
         public override void Kill()
         {
-             if (GameData.GameStatus == GameStatus.PlayerDead) return;
-            base.Kill();
-            GameData.GameStatus = GameStatus.PlayerDead;
+            //if (Killed) return;
+            Game.UpdateEvent -= PlayerTouchEnemyChecker.Check;
+            Killed = true;
             Life--;
+            base.Kill();
         }
 
         public void PlantBomb()
@@ -124,7 +128,7 @@ namespace BomberLibrary.Characters
             Sprite.StartDrawingAnimationInCycle(0);
         }
 
-        private static class PlayerTouchEnemyChecker
+        public static class PlayerTouchEnemyChecker
         {
             public static void Check()
             {

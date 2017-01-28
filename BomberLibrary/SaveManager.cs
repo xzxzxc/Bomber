@@ -50,7 +50,7 @@ namespace BomberLibrary
                 throw new FileNotFoundException();
 
             _loadedSaveManager = JsonConvert.DeserializeObject<SaveManager>(jsonSave, new JsonSerializerSettings
-            { TypeNameHandling = TypeNameHandling.All});
+            { TypeNameHandling = TypeNameHandling.All });
             CopyLoadedDataToGameData();
         }
 

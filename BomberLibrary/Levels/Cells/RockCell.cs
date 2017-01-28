@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BomberLibrary.Cells
+namespace BomberLibrary.Levels.Cells
 {
     [DataContract]
     public class RockCell : Cell

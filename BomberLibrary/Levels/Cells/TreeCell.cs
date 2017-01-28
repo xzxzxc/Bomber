@@ -2,7 +2,7 @@
 using BomberLibrary.Items;
 using JetBrains.Annotations;
 
-namespace BomberLibrary.Cells
+namespace BomberLibrary.Levels.Cells
 {
     [DataContract]
     public class TreeCell : DecoratedCell
