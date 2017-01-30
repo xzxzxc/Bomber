@@ -10,7 +10,7 @@ namespace BomberMonoLibrary.Graphics
         private readonly Texture2D _texture;
         private Rectangle _sourceRectangle;
         private Rectangle _destinationRectangle;
-        private static SpriteBatch SpriteBatch => BomerGame.SpriteBatch;
+        private static SpriteBatch SpriteBatch => MonoGame.SpriteBatch;
 
         public GameAnimation(Texture2D texture, float x, float y,  int rows, int columns, TimeSpan animationTime):base(x, y, rows, columns, animationTime)
         {

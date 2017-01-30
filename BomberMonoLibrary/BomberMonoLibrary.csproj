@@ -37,7 +37,7 @@
     <Compile Include="Sound\GameMusic.cs" />
     <Compile Include="Sound\GameSoundEffect.cs" />
     <Compile Include="Sound\GameSoundFactory.cs" />
-    <Compile Include="BomerGame.cs" />
+    <Compile Include="MonoGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BomberLibrary\BomberLibrary.csproj">

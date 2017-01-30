@@ -7,8 +7,8 @@ namespace BomberMonoLibrary.Graphics
     public class GameDrawableText:DrawableText
     {
         private static float _textDeltaY = 8f;
-        private static SpriteFont Font => BomerGame.Font;
-        private static SpriteBatch SpriteBatch => BomerGame.SpriteBatch;
+        private static SpriteFont Font => MonoGame.Font;
+        private static SpriteBatch SpriteBatch => MonoGame.SpriteBatch;
 
         public GameDrawableText(float x, float y, string text = "") : base(x, y, text)
         {

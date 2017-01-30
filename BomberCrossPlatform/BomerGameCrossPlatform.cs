@@ -11,7 +11,7 @@ namespace BomberCrossPlatform
 	/// <summary>
 	/// This is the main type for your game
 	/// </summary>
-	public class BomerGameCrossPlatform : BomerGame
+	public class BomerGameCrossPlatform : BomberMonoLibrary.MonoGame
 	{
 		private KeyboardState _oldState;
 		private KeyboardState _newState;
@@ -20,7 +20,7 @@ namespace BomberCrossPlatform
 		{
 			base.Initialize();
             GameData.ButtonFactory = new DesktopButtonFactory();
-            IsMouseVisible = true;
+			IsMouseVisible = true;
             Game.Load();
 		}
 

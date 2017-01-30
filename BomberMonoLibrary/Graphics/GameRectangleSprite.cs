@@ -8,7 +8,7 @@ namespace BomberMonoLibrary.Graphics
         private readonly float _width;
         private readonly float _height;
         private Rectangle _rectangle;
-        private static SpriteBatch _spriteBatch = BomerGame.SpriteBatch;
+        private static SpriteBatch _spriteBatch = MonoGame.SpriteBatch;
 
         public GameRectangleSprite(Texture2D texture2D, float x, float y, float width, float height) : base(x, y, texture2D)
         {

@@ -19,6 +19,8 @@ namespace BomberLibrary.Characters
             _sleepTime = TimeSpan.FromMilliseconds(50);
             _moveCounter = 0;
             Game.UpdateEvent += Update;
+			Game.PauseEvent += AbortMoving;
+			Game.ContinueEvent += ContinueMoving;
         }
 
 
@@ -36,7 +38,7 @@ namespace BomberLibrary.Characters
 
         private void Update()
         {
-            if (_stopMoving) return;
+			if (_stopMoving) return;
             var now = DateTime.Now;
             if (now - _previousTime < _sleepTime) return;
             _previousTime = now;
@@ -70,6 +72,11 @@ namespace BomberLibrary.Characters
             Sprite.StopAnimation();
             _stopMoving = true;
         }
+
+		private void ContinueMoving()
+		{
+			_stopMoving = false;
+		}
 
         private void MoveSomewhere()
         {

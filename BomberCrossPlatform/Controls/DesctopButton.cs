@@ -7,8 +7,8 @@ namespace BomberCrossPlatform.Controls
     public class DesctopButton:Button
     {
         private ButtonState _previousMousLeftButtonState;
-        public DesctopButton(float x, float y, string text, ButtonDelegate buttonClickedAction) : base(x, y, text,
-            buttonClickedAction)
+        public DesctopButton(float x, float y, string text, ButtonDelegate buttonClickedAction) : base(x, y,
+		                                                                                               buttonClickedAction, text:text)
         {
             _previousMousLeftButtonState = Mouse.GetState().LeftButton;
         }

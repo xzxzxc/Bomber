@@ -14,7 +14,7 @@ namespace BomberMonoLibrary.Graphics
 
         public override float Width => MyTexture.Width;
         public override float Height => MyTexture.Height;
-        private static SpriteBatch _spriteBatch => BomerGame.SpriteBatch;
+        private static SpriteBatch _spriteBatch => MonoGame.SpriteBatch;
 
         public override float X
         {

@@ -15,14 +15,13 @@ namespace BomberLibrary
 
         public static void Update()
         {
-            //if (GameData.GameStatus == GameStatus.InGame || GameData.GameStatus == GameStatus.PlayerDead)
-                UpdateEvent?.Invoke();
+            UpdateEvent?.Invoke();
         }
 
         public static void StartNew()
         {
-            GameData.Player = new Player(GameData.CellWidth + 5, GameData.CellHeight + 5);
-            GameData.CurrentLevelNum = 0;
+			GameData.Player = new Characters.Player(GameData.CellWidth + 5, GameData.CellHeight + 5);
+			GameData.CurrentLevelNum = 0;
             LoadLevel(0);
         }
 
@@ -32,7 +31,6 @@ namespace BomberLibrary
                 GameData.CurrentScreen = GameData.Screens.GameWonScreen;
             else
             {
-                //EnemiesManager.StopLive();
                 LoadLevel(++GameData.CurrentLevelNum);
                 GameData.Player.Bomb1Num += 10;
             }
@@ -46,10 +44,7 @@ namespace BomberLibrary
             GameData.Levels[levelNum].Create();
             GameData.ClearMapOffset();
             GameData.SetPlayerPositionToStart();
-            //GameData.GameStatus = GameStatus.InGame;
-            GameData.Screens.StartScreen.UnLoad();
             GameData.CurrentScreen = GameData.Screens.InGameScreen;
-            
         }
 
         public static void RestartLevel()
@@ -82,7 +77,6 @@ namespace BomberLibrary
 
         public static void Load()
         {
-            
             GameData.GameMusic = GameData.SoundFactory.CreateMusic();
             GameData.GameMusic.Play();
             GameData.CurrentScreen = GameData.Screens.StartScreen;
@@ -109,5 +103,15 @@ namespace BomberLibrary
             GameData.CurrentLevel.CreateEnemies();
             GameData.CurrentScreen = GameData.Screens.InGameScreen;
         }
+
+		public static class Player
+		{
+			public static void MoveLeft() { GameData.Player.MoveLeft(); }
+			public static void MoveRight() { GameData.Player.MoveRight(); }
+			public static void MoveUp() { GameData.Player.MoveUp(); }
+			public static void MoveDown() { GameData.Player.MoveDown(); }
+			public static void PlantBomb() { GameData.Player.PlantBomb(); }
+			public static void StopMoving() { GameData.Player.StopMoving(); }
+		}
     }
 }

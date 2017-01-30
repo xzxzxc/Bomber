@@ -17,13 +17,12 @@ namespace BomberLibrary.Characters
             Bomb1Num = bomb1Num;
             Bomb2Num = bomb2Num;
             Bomb3Num = bomb3Num;
-            //Game.UpdateEvent += PlayerTouchEnemyChecker.Check;
+            
             Killed = false;
         }
 
         public override void Kill()
         {
-            //if (Killed) return;
             Game.UpdateEvent -= PlayerTouchEnemyChecker.Check;
             Killed = true;
             Life--;

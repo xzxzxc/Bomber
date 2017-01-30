@@ -10,14 +10,14 @@ namespace BomberMonoLibrary
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-	public abstract class BomerGame : Microsoft.Xna.Framework.Game
+	public abstract class MonoGame : Microsoft.Xna.Framework.Game
     {
         private readonly GraphicsDeviceManager _graphics;
         public static SpriteBatch SpriteBatch;
 
         public static SpriteFont Font;
 
-        public BomerGame()
+        public MonoGame()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -32,7 +32,6 @@ namespace BomberMonoLibrary
 		protected override void Initialize()
         {
             base.Initialize();
-            
             GameData.CellHeight = GameData.CellWidth = 50;
             GameData.GraphicsFactory = new GameGraphicsFactory(Content, GraphicsDevice);
             GameData.SoundFactory = new GameSoundFactory(Content);
@@ -41,7 +40,7 @@ namespace BomberMonoLibrary
             GameData.WindowHeight = _graphics.PreferredBackBufferHeight;
         }
 
-		protected abstract void InitializeInput();
+		protected virtual void InitializeInput() { }
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load

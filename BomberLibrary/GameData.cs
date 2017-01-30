@@ -103,7 +103,7 @@ namespace BomberLibrary
             public static IScreen GameOverScreen { get; } = new GameOverScreen() as IScreen;
             public static IScreen GameWonScreen { get; } = new GameWonScreen() as IScreen;
             public static IScreen PauseScreen { get; } = new PauseScreen() as IScreen;
-            public static IScreen InGameScreen { get; } = new ProxyInGameScreen() as IScreen;
+			public static IScreen InGameScreen { get; set; } = new ProxyInGameScreen() as IScreen;
         }
     }
 }

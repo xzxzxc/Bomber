@@ -4,19 +4,19 @@ namespace BomberLibrary.GameInterface
 {
     public class ProxyInGameScreen:IScreen
     {
-        public void Draw()
+		public virtual void Draw()
         {
             GameData.CurrentLevel.Draw();
             StatusLine.Draw();
         }
 
-        public void Load()
+        public virtual void Load()
         {
             GameData.Player.Killed = false;
             Game.UpdateEvent += Player.PlayerTouchEnemyChecker.Check;
         }
 
-        public void UnLoad()
+		public virtual void UnLoad()
         {
             
         }
