@@ -6,9 +6,13 @@ namespace BomberIOS.Controls
 {
 	public class TouchButton : Button
 	{
+		private bool? isStopBePressed;
+
 		public TouchButton(float x, float y, ButtonDelegate buttonClickedAction, Sprite backgroundSprite = null,
-						   string text = null) :
-		base(x, y, buttonClickedAction, backgroundSprite, text) { }
+		                   string text = null, ButtonDelegate buttonReleasedAction = null) :
+		base(x, y, buttonClickedAction, backgroundSprite, text, buttonReleasedAction)
+		{
+		}
 
 		protected override bool IsEntered()
 		{
@@ -17,9 +21,24 @@ namespace BomberIOS.Controls
 			{
 				if (touch.Position.X < X + Width && touch.Position.X > X && touch.Position.Y < Y + Height &&
 					touch.Position.Y > Y)
+				{
+					isStopBePressed = false;
 					return true;
+				}
 			}
+			if (isStopBePressed != null && isStopBePressed == false)
+				isStopBePressed = true;
+			else
+				isStopBePressed = null;
 			return false;
+		}
+
+		protected override bool IsReleased()
+		{
+			if (isStopBePressed == null || isStopBePressed == false)
+				return false;
+			else
+				return true;
 		}
 	}
 }

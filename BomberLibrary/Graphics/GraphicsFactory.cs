@@ -43,13 +43,15 @@
         //
         public abstract DrawableText CreateDrawableText(float xCener, float yCenter, string content = "");
 
-        //
-        // Animations
-        //
+		//
+		// Animations
+		//
 
-        // Charackters
+		// Charackters
+		protected abstract Animation CreatePlayerAnimation(float x, float y);
         protected abstract Animation CreatePlayerMoveAnimation(float x, float y);
         protected abstract Animation CreatePlayerDieAnimation(float x, float y);
+		protected abstract Animation CreateEnemyAnimation(float x, float y);
         protected abstract Animation CreateEnemyMoveAnimation(float x, float y);
         protected abstract Animation CreateEnemyDieAnimation(float x, float y);
 

@@ -46,10 +46,14 @@ namespace BomberLibrary.GameInterface
             _bomb1Sprite = GameData.GraphicsFactory.CreateBombSmallSprite(x + GameData.CellWidth, y, 1);
             _bomb2Sprite = GameData.GraphicsFactory.CreateBombSmallSprite(x + 2f * GameData.CellWidth, y, 2);
             _bomb3Sprite = GameData.GraphicsFactory.CreateBombSmallSprite(x + 3f * GameData.CellWidth, y, 3);
-            _lifesText = GameData.GraphicsFactory.CreateDrawableText(x + 0.6f * GameData.CellWidth, y, "x");
-            _bomb1Text = GameData.GraphicsFactory.CreateDrawableText(x + 1.6f * GameData.CellWidth, y, "x");
-            _bomb2Text = GameData.GraphicsFactory.CreateDrawableText(x + 2.6f * GameData.CellWidth, y, "x");
-            _bomb3Text = GameData.GraphicsFactory.CreateDrawableText(x + 3.6f * GameData.CellWidth, y, "x");
+			_lifesText = GameData.GraphicsFactory.CreateDrawableText(x + 0.6f * GameData.CellWidth, y 
+			                                                         + 0.2f * GameData.CellHeight, "x");
+            _bomb1Text = GameData.GraphicsFactory.CreateDrawableText(x + 1.6f * GameData.CellWidth, y
+			                                                         + 0.2f * GameData.CellHeight, "x");
+            _bomb2Text = GameData.GraphicsFactory.CreateDrawableText(x + 2.6f * GameData.CellWidth, y
+			                                                         + 0.2f * GameData.CellHeight, "x");
+            _bomb3Text = GameData.GraphicsFactory.CreateDrawableText(x + 3.6f * GameData.CellWidth, y
+			                                                         + 0.2f * GameData.CellHeight, "x");
         }
     }
 }

@@ -51,7 +51,7 @@ namespace BomberMonoLibrary.Graphics
 
         public override void Draw()
         {
-            _spriteBatch.Draw(MyTexture, _spritePosition, Color.White);
+			_spriteBatch.Draw(MyTexture, _spritePosition, Color.White);
             base.Draw();
         }
 

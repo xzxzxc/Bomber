@@ -62,10 +62,11 @@ namespace BomberLibrary
         public static float XMapOffset;
         public static float YMapOffset;
         public static float XStandartOffset => CellWidth * 0.15f;
-        public static float YStandartOffset => CellHeight * 0.10f;
+        public static float YStandartOffset => CellHeight * 0.05f;
 
         public static void SetPlayerPositionToStart()
         {
+			Player.StopMoving();
             Player.X = CellWidth + 5;
             Player.Y = CellHeight + 5;
         }

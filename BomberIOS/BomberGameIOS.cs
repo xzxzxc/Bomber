@@ -10,6 +10,7 @@ namespace BomberIOS
 		protected override void Initialize()
 		{
 			base.Initialize();
+			GameData.CellHeight = GameData.CellWidth = 100;
 			GameData.ButtonFactory = new TouchButtonFactory(Content);
 			Game.Load();
 			GameData.Screens.InGameScreen = new IOSProxyInGameScreen() as IScreen;

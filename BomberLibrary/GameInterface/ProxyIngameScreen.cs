@@ -12,13 +12,13 @@ namespace BomberLibrary.GameInterface
 
         public virtual void Load()
         {
-            GameData.Player.Killed = false;
+            //GameData.Player.Killed = false;
             Game.UpdateEvent += Player.PlayerTouchEnemyChecker.Check;
         }
 
 		public virtual void UnLoad()
         {
-            
+            //Game.UpdateEvent -= Player.PlayerTouchEnemyChecker.Check;
         }
     }
 }

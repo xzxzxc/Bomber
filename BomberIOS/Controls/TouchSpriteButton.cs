@@ -7,8 +7,9 @@ namespace BomberIOS.Controls
 {
 	public class TouchSpriteButton:TouchButton
     {
-		public TouchSpriteButton(float x, float y, ButtonDelegate buttonClickedAction,
-								 Sprite backgroundSprite) : base(x, y, buttonClickedAction, backgroundSprite)
+		public TouchSpriteButton(float x, float y, ButtonDelegate buttonClickedAction, Sprite backgroundSprite,
+								 ButtonDelegate buttonReleasedAction = null) :
+		base(x, y, buttonClickedAction, backgroundSprite, buttonReleasedAction: buttonReleasedAction)
 		{ }
     }
 }

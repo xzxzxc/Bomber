@@ -50,12 +50,16 @@ namespace BomberLibrary.Graphics
 
         public bool IsInTouchAbove(Sprite sprite)
         {
-            return sprite.Y <= Y + Height && sprite.Y > Y && ((X < sprite.X + sprite.Width && sprite.X + sprite.Width < X + Width) || (sprite.X < X + Width && X < sprite.X));
+            return sprite.Y <= Y + Height && sprite.Y > Y
+				         && ((X < sprite.X + sprite.Width && sprite.X + sprite.Width < X + Width) 
+				             || (sprite.X < X + Width && X < sprite.X));
         }
 
         public bool IsInTouchBelow(Sprite sprite)
         {
-            return sprite.Y + sprite.Height >= Y && sprite.Y + sprite.Height < Y + Height && ((X < sprite.X + sprite.Width && sprite.X + sprite.Width < X + Width) || (sprite.X < X + Width && X < sprite.X));
+            return sprite.Y + sprite.Height >= Y && sprite.Y + sprite.Height < Y + Height
+				         && ((X < sprite.X + sprite.Width && sprite.X + sprite.Width < X + Width) 
+				          || (sprite.X < X + Width && X < sprite.X));
         }
 
         public bool IsInTouchLeft(Sprite sprite)
@@ -65,7 +69,9 @@ namespace BomberLibrary.Graphics
 
         public bool IsInTouchRight(Sprite sprite)
         {
-            return sprite.X + sprite.Width >= X && sprite.X + sprite.Width < X + Width && ((Y < sprite.Y + sprite.Height && sprite.Y + sprite.Height < Y + Height) || (sprite.Y < Y + Height && Y < sprite.Y));
+            return sprite.X + sprite.Width >= X && sprite.X + sprite.Width < X + Width
+				         && ((Y < sprite.Y + sprite.Height && sprite.Y + sprite.Height < Y + Height)
+				             || (sprite.Y < Y + Height && Y < sprite.Y));
         }
 
         public abstract void MoveLeft(float speed);

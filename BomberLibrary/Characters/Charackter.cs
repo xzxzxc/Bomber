@@ -40,14 +40,14 @@ namespace BomberLibrary.Characters
         {
             get
             {
-                try
-                {
+                //try
+                //{
                     return GameData.CurrentMap.GetCell(Sprite.X + Sprite.Width / 2, Sprite.Y + Sprite.Height / 2);
-                }
-                catch (Exception)
+                //}
+                /*catch (Exception)
                 {
                     return GameData.CurrentMap[0, 0];
-                }
+                }*/
             }
         }
         [DataMember]
@@ -59,7 +59,7 @@ namespace BomberLibrary.Characters
         
         public virtual void Kill()
         {
-            Sprite.StartDrawingAnimationToEnd(1); // Die animation
+            Sprite.StartDrawingAnimationToEnd(2); // Die animation
         }
 
         public virtual void MoveLeft()
@@ -85,6 +85,7 @@ namespace BomberLibrary.Characters
         protected Charackter(Sprite sprite)
         {
             Sprite = sprite;
+			Sprite.StartDrawingAnimationInCycle(0);
         }
 
         protected bool CheckItem()
@@ -142,17 +143,20 @@ namespace BomberLibrary.Characters
             CheckInTouchItem();
         }
 
-        protected void CheckInTouchLeftCell(float speed)
-        {
-            foreach (Cell cell in GameData.CurrentMap)
-            {
-                if (!cell.IsMovable && cell.Sprite.IsInTouchLeft(Sprite))
-                {
-                    Sprite.X += speed;
-                    return;
-                }
-            }
-        }
+		protected void CheckInTouchLeftCell(float speed)
+		{
+			var cells = new Cell[] { GameData.CurrentMap.GetCell(Cell.X - GameData.CellWidth, Cell.Y),
+				 Y<Cell.Y?
+				GameData.CurrentMap.GetCell(Cell.X - GameData.CellWidth, Cell.Y - GameData.CellHeight):
+				GameData.CurrentMap.GetCell(Cell.X - GameData.CellWidth, Cell.Y + GameData.CellHeight)};
+			foreach (var cell in cells)
+				if (!cell.IsMovable && cell.Sprite.IsInTouchLeft(Sprite))
+				{
+					Sprite.X += speed;
+					return;
+				}
+
+		}
 
         public void MoveRight(float speed)
         {
@@ -161,16 +165,19 @@ namespace BomberLibrary.Characters
             CheckInTouchItem();
         }
 
-        protected void CheckInTouchRightCell(float speed)
-        {
-            foreach (Cell cell in GameData.CurrentMap)
-            {
-                if (!cell.IsMovable && cell.Sprite.IsInTouchRight(Sprite))
-                {
-                    Sprite.X -= speed;
-                }
-            }
-        }
+		protected void CheckInTouchRightCell(float speed)
+		{
+			var cells = new Cell[] { GameData.CurrentMap.GetCell(Cell.X + GameData.CellWidth, Cell.Y),
+				 Y<Cell.Y?
+				GameData.CurrentMap.GetCell(Cell.X + GameData.CellWidth, Cell.Y - GameData.CellHeight):
+				GameData.CurrentMap.GetCell(Cell.X + GameData.CellWidth, Cell.Y + GameData.CellHeight)};
+			foreach (var cell in cells)
+			if (!cell.IsMovable && cell.Sprite.IsInTouchRight(Sprite))
+			{
+				Sprite.X -= speed;
+			}
+
+		}
 
         public void MoveUp(float speed)
         {
@@ -179,17 +186,20 @@ namespace BomberLibrary.Characters
             CheckInTouchItem();
         }
 
-        protected void CheckInTouchUpperCell(float speed)
-        {
-            foreach (Cell cell in GameData.CurrentMap)
-            {
-                if (!cell.IsMovable && cell.Sprite.IsInTouchAbove(Sprite))
-                {
-                    Sprite.Y += speed;
-                    return;
-                }
-            }
-        }
+		protected void CheckInTouchUpperCell(float speed)
+		{
+			var cells = new Cell[] { GameData.CurrentMap.GetCell(Cell.X, Cell.Y - GameData.CellHeight),
+				X<Cell.X?
+				GameData.CurrentMap.GetCell(Cell.X - GameData.CellWidth, Cell.Y - GameData.CellHeight):
+				GameData.CurrentMap.GetCell(Cell.X + GameData.CellWidth, Cell.Y - GameData.CellHeight)};
+			foreach (var cell in cells)
+			if (!cell.IsMovable && cell.Sprite.IsInTouchAbove(Sprite))
+			{
+				Sprite.Y += speed;
+				return;
+			}
+
+		}
 
         public void MoveDown(float speed)
         {
@@ -198,21 +208,24 @@ namespace BomberLibrary.Characters
             CheckInTouchItem();
         }
 
-        protected void CheckInTouchLowerCell(float speed)
-        {
-            foreach (Cell cell in GameData.CurrentMap)
-            {
-                if (!cell.IsMovable && cell.Sprite.IsInTouchBelow(Sprite))
-                {
-                    Sprite.Y -= speed;
-                    return;
-                }
-            }
-        }
+		protected void CheckInTouchLowerCell(float speed)
+		{
+			var cells = new Cell[] { GameData.CurrentMap.GetCell(Cell.X, Cell.Y + GameData.CellHeight),
+				X<Cell.X?
+				GameData.CurrentMap.GetCell(Cell.X - GameData.CellWidth, Cell.Y + GameData.CellHeight):
+				GameData.CurrentMap.GetCell(Cell.X + GameData.CellWidth, Cell.Y + GameData.CellHeight)};
+			foreach (var cell in cells)
+			if (!cell.IsMovable && cell.Sprite.IsInTouchBelow(Sprite))
+			{
+				Sprite.Y -= speed;
+				return;
+			}
+
+		}
 
         public void StopMoving()
         {
-            Sprite.StopAnimation();
+			Sprite.StartDrawingAnimationInCycle(0);
         }
     }
 }

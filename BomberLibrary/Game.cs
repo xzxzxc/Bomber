@@ -9,9 +9,9 @@ namespace BomberLibrary
     public delegate void GameDelegate();
     public static class Game
     {
-        internal static event GameDelegate PauseEvent;
-        internal static event GameDelegate ContinueEvent;
-        internal static event GameDelegate UpdateEvent;
+		public static event GameDelegate PauseEvent;
+		public static event GameDelegate ContinueEvent;
+		public static event GameDelegate UpdateEvent;
 
         public static void Update()
         {
@@ -45,21 +45,23 @@ namespace BomberLibrary
             GameData.ClearMapOffset();
             GameData.SetPlayerPositionToStart();
             GameData.CurrentScreen = GameData.Screens.InGameScreen;
+			GameData.Player.Killed = false;
         }
 
         public static void RestartLevel()
         {
+			GameData.SetPlayerPositionToStart();
             GameData.CurrentLevel.ReLoad();
             GameData.ClearMapOffset();
-            GameData.SetPlayerPositionToStart();
             GameData.SetMinimalPlayerBombNumber();
             GameData.CurrentScreen = GameData.Screens.InGameScreen;
+			GameData.Player.Killed = false;
         }
 
         public static void PlayerDie()
         {
             GameData.Enemies = new List<Enemy>();
-            GameData.CurrentScreen = GameData.Player.Life == 0 ? GameData.Screens.GameOverScreen :
+            GameData.CurrentScreen = GameData.Player.Life < 1 ? GameData.Screens.GameOverScreen :
                 GameData.Screens.DieScreen;
         }
 
@@ -112,6 +114,7 @@ namespace BomberLibrary
 			public static void MoveDown() { GameData.Player.MoveDown(); }
 			public static void PlantBomb() { GameData.Player.PlantBomb(); }
 			public static void StopMoving() { GameData.Player.StopMoving(); }
+			public static bool Killed => GameData.Player.Killed;
 		}
     }
 }

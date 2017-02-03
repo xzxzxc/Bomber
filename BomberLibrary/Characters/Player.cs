@@ -17,14 +17,12 @@ namespace BomberLibrary.Characters
             Bomb1Num = bomb1Num;
             Bomb2Num = bomb2Num;
             Bomb3Num = bomb3Num;
-            
             Killed = false;
         }
 
         public override void Kill()
         {
-            Game.UpdateEvent -= PlayerTouchEnemyChecker.Check;
-            Killed = true;
+			Killed = true;
             Life--;
             base.Kill();
         }
@@ -62,18 +60,18 @@ namespace BomberLibrary.Characters
                 if (CheckItem())
                 {
                     GetItem();
-                }
+                }//TODO:Change to CheckInTouchItem();
             }
             else
             {
                 base.MoveUp();
             }
-            Sprite.StartDrawingAnimationInCycle(0);
+            Sprite.StartDrawingAnimationInCycle(1);
         }
 
         public override void MoveDown()
         {
-            if (Y > GameData.WindowHeight*0.75 && GameData.CurrentMap[0, GameData.CurrentMap.CellsLengthY - 1].Y
+			if (Y + Sprite.Height > GameData.WindowHeight*0.75 && GameData.CurrentMap[0, GameData.CurrentMap.CellsLengthY - 1].Y
                 >= GameData.WindowHeight - GameData.CellHeight + CurrentSpeed)
             {
                 GameData.CurrentMap.MoveUp(CurrentSpeed);
@@ -87,7 +85,7 @@ namespace BomberLibrary.Characters
             {
                 base.MoveDown();
             }
-            Sprite.StartDrawingAnimationInCycle(0);
+            Sprite.StartDrawingAnimationInCycle(1);
         }
 
         public override void MoveLeft()
@@ -105,7 +103,7 @@ namespace BomberLibrary.Characters
             {
                 base.MoveLeft();
             }
-            Sprite.StartDrawingAnimationInCycle(0);
+            Sprite.StartDrawingAnimationInCycle(1);
         }
 
         public override void MoveRight()
@@ -124,7 +122,7 @@ namespace BomberLibrary.Characters
             {
                 base.MoveRight();
             }
-            Sprite.StartDrawingAnimationInCycle(0);
+            Sprite.StartDrawingAnimationInCycle(1);
         }
 
         public static class PlayerTouchEnemyChecker
@@ -134,7 +132,8 @@ namespace BomberLibrary.Characters
                 if (!CheckPlayerTouchEnemie()) return;
                 foreach (var enemy in GameData.Enemies)
                     enemy.AbortMoving();
-                GameData.Player.Kill();
+				Game.UpdateEvent -= PlayerTouchEnemyChecker.Check;
+				GameData.Player.Kill();
             }
 
             private static bool CheckPlayerTouchEnemie()

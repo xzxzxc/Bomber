@@ -106,7 +106,7 @@ namespace BomberLibrary.Characters
                     MoveRight();
                     break;
             }
-            Sprite.StartDrawingAnimationInCycle(0);
+            Sprite.StartDrawingAnimationInCycle(1);
         }
 
         public static class KilledManager

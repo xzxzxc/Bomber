@@ -23,6 +23,7 @@ namespace BomberMonoLibrary.Graphics
         public override Sprite CreatePlayerSprite(float x, float y)
         {
             var playerSprite =  new GameSprite(x, y, _content.Load<Texture2D>("Images\\player"));
+			playerSprite.AddAnimations(CreatePlayerAnimation(x, y));
             playerSprite.AddAnimations(CreatePlayerMoveAnimation(x, y));
             var dieAnimation = CreatePlayerDieAnimation(x, y);
             dieAnimation.EndAnimation += Game.PlayerDie;
@@ -33,14 +34,15 @@ namespace BomberMonoLibrary.Graphics
         public override Sprite CreateEnemySprite(float x, float y)
         {
             var enemySprite = new GameSprite(x, y, _content.Load<Texture2D>("Images\\enemy"));
-            enemySprite.AddAnimations(CreateEnemyMoveAnimation(x, y));
+			enemySprite.AddAnimations(CreateEnemyAnimation(x, y));
+			enemySprite.AddAnimations(CreateEnemyMoveAnimation(x, y));	
             var dieAnimation = CreateEnemyDieAnimation(x, y);
             dieAnimation.EndAnimation += Enemy.KilledManager.RemoveFromGameData;
             enemySprite.AddAnimations(dieAnimation);
             return enemySprite;
         }
 
-        public override Sprite CreateTreeSprite(float x, float y)
+		public override Sprite CreateTreeSprite(float x, float y)
         {
             var treeSprite =  new GameSprite(x, y, _content.Load<Texture2D>("Images\\tree"));
             treeSprite.AddAnimations(CreateExplotionAnimation(x, y));
@@ -129,27 +131,39 @@ namespace BomberMonoLibrary.Graphics
             return new GameDrawableText(x, y, content);
         }
 
+		protected override Animation CreatePlayerAnimation(float x, float y)
+		{
+			return new GameAnimation(_content.Load<Texture2D>("Images\\player_staying"), x, y, 3, 3,
+				TimeSpan.FromMilliseconds(150));
+		}
+
         protected override Animation CreatePlayerMoveAnimation(float x, float y)
         {
-            return new GameAnimation(_content.Load<Texture2D>("Images\\player_moving"), x, y, 2, 2,
+            return new GameAnimation(_content.Load<Texture2D>("Images\\player_moving"), x, y, 2, 9,
                 TimeSpan.FromMilliseconds(150));
         }
 
         protected override Animation CreatePlayerDieAnimation(float x, float y)
         {
-            return new GameAnimation(_content.Load<Texture2D>("Images\\player_die"), x, y, 2, 2,
+            return new GameAnimation(_content.Load<Texture2D>("Images\\player_die"), x, y, 2, 3,
                 TimeSpan.FromMilliseconds(250));
         }
 
+		protected override Animation CreateEnemyAnimation(float x, float y)
+		{
+			return new GameAnimation(_content.Load<Texture2D>("Images\\enemy_staying"), x, y, 1, 1,
+				TimeSpan.FromMilliseconds(150));
+		}
+
         protected override Animation CreateEnemyMoveAnimation(float x, float y)
         {
-            return new GameAnimation(_content.Load<Texture2D>("Images\\enemy_moving"), x, y, 2, 2,
+            return new GameAnimation(_content.Load<Texture2D>("Images\\enemy_moving"), x, y, 1, 2,
                 TimeSpan.FromMilliseconds(150));
         }
 
         protected override Animation CreateEnemyDieAnimation(float x, float y)
         {
-            return new GameAnimation(_content.Load<Texture2D>("Images\\enemy_die"), x, y, 2, 2,
+            return new GameAnimation(_content.Load<Texture2D>("Images\\enemy_die"), x, y, 1, 5,
                 TimeSpan.FromMilliseconds(150));
         }
 
@@ -161,7 +175,7 @@ namespace BomberMonoLibrary.Graphics
 
         protected override Animation CreateExplotionAnimation(float x, float y)
         {
-            return new GameAnimation(_content.Load<Texture2D>("Images\\explosion"), x, y, 5, 5,
+            return new GameAnimation(_content.Load<Texture2D>("Images\\explosion"), x, y, 4, 8,
                 TimeSpan.FromMilliseconds(50));
         }
 
