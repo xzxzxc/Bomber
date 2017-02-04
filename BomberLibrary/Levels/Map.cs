@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Runtime.Serialization;
 using BomberLibrary.Interfaces;
 using BomberLibrary.Levels.Cells;
@@ -33,8 +34,9 @@ namespace BomberLibrary.Levels
 
         internal Cell GetCell(float x, float y)
         {
-            return Cells[(int) ((x - GameData.XMapOffset) / GameData.CellWidth),
-                (int) ((y - GameData.YMapOffset) / GameData.CellHeight)];
+            int xNum = (int) ((x - GameData.XMapOffset) / GameData.CellWidth);
+            int yNum = (int) ((y - GameData.YMapOffset) / GameData.CellHeight);
+            return Cells[Math.Min(Math.Max(0, xNum), CellsLengthX - 1), Math.Min(Math.Max(0, yNum), CellsLengthY - 1)];
 
         }
 
