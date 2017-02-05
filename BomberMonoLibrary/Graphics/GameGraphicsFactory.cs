@@ -126,9 +126,9 @@ namespace BomberMonoLibrary.Graphics
             return new GameSprite(xCenter - texture.Width / 2f, yCenter - texture.Height / 2f, texture);
         }
 
-        public override DrawableText CreateDrawableText(float x, float y, string content="")
+        public override DrawableText CreateDrawableText(float x, float y, string content="", bool drawInBlack = false)
         {
-            return new GameDrawableText(x, y, content);
+            return new GameDrawableText(x, y, content, drawInBlack);
         }
 
 		protected override Animation CreatePlayerAnimation(float x, float y)
@@ -184,7 +184,5 @@ namespace BomberMonoLibrary.Graphics
             _content = content;
             _graphicsDevice = graphicsDevice;
         }
-
-
     }
 }

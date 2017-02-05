@@ -41,19 +41,19 @@ namespace BomberLibrary.GameInterface
         public static void Load(float x, float y)
         {
             _whiteLine = GameData.GraphicsFactory.CreateRectangleSprite(x, y, "TransparentWhite",
-                4f * GameData.CellWidth, 0.4f * GameData.CellHeight);
+                6f * GameData.CellWidth, 0.6f * GameData.CellHeight);
             _heartSprite = GameData.GraphicsFactory.CreateHeartSprite(x, y);
-            _bomb1Sprite = GameData.GraphicsFactory.CreateBombSmallSprite(x + GameData.CellWidth, y, 1);
-            _bomb2Sprite = GameData.GraphicsFactory.CreateBombSmallSprite(x + 2f * GameData.CellWidth, y, 2);
-            _bomb3Sprite = GameData.GraphicsFactory.CreateBombSmallSprite(x + 3f * GameData.CellWidth, y, 3);
-			_lifesText = GameData.GraphicsFactory.CreateDrawableText(x + 0.6f * GameData.CellWidth, y 
-			                                                         + 0.2f * GameData.CellHeight, "x");
-            _bomb1Text = GameData.GraphicsFactory.CreateDrawableText(x + 1.6f * GameData.CellWidth, y
-			                                                         + 0.2f * GameData.CellHeight, "x");
-            _bomb2Text = GameData.GraphicsFactory.CreateDrawableText(x + 2.6f * GameData.CellWidth, y
-			                                                         + 0.2f * GameData.CellHeight, "x");
-            _bomb3Text = GameData.GraphicsFactory.CreateDrawableText(x + 3.6f * GameData.CellWidth, y
-			                                                         + 0.2f * GameData.CellHeight, "x");
+            _bomb1Sprite = GameData.GraphicsFactory.CreateBombSmallSprite(x + 1.5f* GameData.CellWidth, y, 1);
+            _bomb2Sprite = GameData.GraphicsFactory.CreateBombSmallSprite(x + 3f * GameData.CellWidth, y, 2);
+            _bomb3Sprite = GameData.GraphicsFactory.CreateBombSmallSprite(x + 4.5f * GameData.CellWidth, y, 3);
+			_lifesText = GameData.GraphicsFactory.CreateDrawableText(x + 1f * GameData.CellWidth, y 
+			                                                         + 0.3f * GameData.CellHeight, "x");
+            _bomb1Text = GameData.GraphicsFactory.CreateDrawableText(x + 2.5f * GameData.CellWidth, y
+			                                                         + 0.3f * GameData.CellHeight, "x");
+            _bomb2Text = GameData.GraphicsFactory.CreateDrawableText(x + 4f * GameData.CellWidth, y
+			                                                         + 0.3f * GameData.CellHeight, "x");
+            _bomb3Text = GameData.GraphicsFactory.CreateDrawableText(x + 5.5f * GameData.CellWidth, y
+			                                                         + 0.3f * GameData.CellHeight, "x");
         }
     }
 }

@@ -34,7 +34,7 @@ namespace BomberLibrary.Characters
             }
         }
         [DataMember]
-        protected float CurrentSpeed = 2.5f;
+		protected float CurrentSpeed = 0.05f*GameData.CellWidth;
 
         internal Cell Cell
         {

@@ -62,7 +62,8 @@ namespace BomberLibrary.Levels
             int x;
             int y;
             GenerateRandomPos(out x, out y);
-            return IsAllowedForEnemy(x, y) ? new Enemy(x * GameData.CellWidth, y * GameData.CellHeight) : GenerateEnemy();
+			return IsAllowedForEnemy(x, y) ? new Enemy(x * GameData.CellWidth + GameData.XMapOffset,
+			                                           y * GameData.CellHeight + GameData.YMapOffset) : GenerateEnemy();
         }
 
         private static bool IsAllowedForEnemy(int x, int y)

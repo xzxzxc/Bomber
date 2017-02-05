@@ -30,6 +30,7 @@ namespace BomberLibrary.Bombs
             _beforeBoom = time;
             Radious = radious;
             _sprite.StartDrawingAnimationInCycle(0);
+			GameData.Player.PlayerDieEvent += StopClock;
             Game.PauseEvent += StopClock;
             Game.ContinueEvent += ContinueClock;
             StartNewClockTask();
@@ -79,6 +80,7 @@ namespace BomberLibrary.Bombs
 
         private void Finialize()
         {
+			GameData.Player.PlayerDieEvent -= StopClock;
             Game.PauseEvent -= StopClock;
             Game.ContinueEvent -= ContinueClock;
         }

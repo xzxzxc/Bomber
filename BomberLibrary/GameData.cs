@@ -56,6 +56,8 @@ namespace BomberLibrary
         public static Player Player;
 
         public static Level[] Levels { get; } = { new Level(21, 11, 15, 3, 15), new Level(25, 11, 20, 6, 15, 5), new Level(21, 21, 25, 9, 15, 10, 5)};
+
+        //public static Level[] Levels { get; } = {new Level(21, 11, 1, 0, 0)};
         public static int MaxLevelNum => Levels.Length;
         public static float WindowWidth;
         public static float WindowHeight;

@@ -69,7 +69,7 @@ namespace BomberLibrary.Levels
         {
             //EnemiesManager.StopLive();
             GameData.Enemies = new List<Enemy>();
-            GC.Collect();
+            
             for (int i = 0; i < _enemyNum; i++)
             {
                 GameData.Enemies.Add(MapGenerator.GenerateEnemy());
@@ -84,6 +84,7 @@ namespace BomberLibrary.Levels
                 cell.X = cell.X - GameData.XMapOffset;
                 cell.Y = cell.Y - GameData.YMapOffset;
             }
+			GameData.ClearMapOffset();
             CreateEnemies();
         }
 

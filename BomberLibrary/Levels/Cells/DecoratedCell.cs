@@ -61,7 +61,7 @@ namespace BomberLibrary.Levels.Cells
         { 
             try
             {
-                _item = Item.CreateByHashCode(X + GameData.XStandartOffset, Y + GameData.XStandartOffset,
+                _item = Item.CreateByHashCode(X + GameData.XStandartOffset, Y + GameData.YStandartOffset,
                     _itemHashCode);
             }
             catch (ArgumentOutOfRangeException)

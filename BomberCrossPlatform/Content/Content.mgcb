@@ -361,12 +361,6 @@
 /processorParam:Quality=Best
 /build:Sounds/music.wav
 
-#begin Courier New.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:Courier New.spritefont
-
 #begin Images/button.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -402,4 +396,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/player_staying.png
+
+#begin AgencyFB.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:AgencyFB.spritefont
 

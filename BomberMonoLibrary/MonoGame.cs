@@ -17,7 +17,7 @@ namespace BomberMonoLibrary
 
         public static SpriteFont Font;
 
-        public MonoGame()
+        protected MonoGame()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -51,7 +51,7 @@ namespace BomberMonoLibrary
             // Create a new SpriteBatch, which can be used to draw textures.
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            Font = Content.Load<SpriteFont>("Courier New");
+            Font = Content.Load<SpriteFont>("AgencyFB");
             
         }
 

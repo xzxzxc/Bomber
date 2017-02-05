@@ -1,6 +1,5 @@
 ﻿using BomberLibrary.Controls;
 using BomberLibrary;
-using BomberLibrary.Characters;
 using BomberMonoLibrary.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,9 +15,14 @@ namespace BomberIOS.Controls
 			_content = content;
 		}
 
-		public override Button CreateMenuButton(float x, float y, string text, ButtonDelegate action)
+		public override Button CreateWhiteMenuButton(float x, float y, string text, ButtonDelegate action)
 		{
 			return new TouchTextButton(x, y, action, text);
+		}
+
+		public override Button CreateBlackMenuButton(float x, float y, string text, ButtonDelegate action)
+		{
+			return new TouchTextButton(x, y, action, text, true);
 		}
 
 		public TouchSpriteButton CreateMoveLeftButton(float x, float y)

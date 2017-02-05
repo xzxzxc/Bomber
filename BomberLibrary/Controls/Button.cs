@@ -18,12 +18,12 @@ namespace BomberLibrary.Controls
 
 		protected internal Button(float xCenter, float yCenter, ButtonDelegate buttonClickedAction,
 								  Sprite backgroundSprite = null, string text = null,
-								  ButtonDelegate buttonReleasedAction = null)
+								  ButtonDelegate buttonReleasedAction = null, bool drawInBlack = false)
 		{
 			_backgroundSprite = backgroundSprite == null ?
 				GameData.GraphicsFactory.CreateButtonBackgroundSprite(xCenter, yCenter) : backgroundSprite;
 			if (text != null)
-				_text = GameData.GraphicsFactory.CreateDrawableText(xCenter, yCenter, text);
+				_text = GameData.GraphicsFactory.CreateDrawableText(xCenter, yCenter, text, drawInBlack);
 			buttonClicked += buttonClickedAction;
 			buttonReleased += buttonReleasedAction;
 		}

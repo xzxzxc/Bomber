@@ -361,12 +361,6 @@
 /processorParam:Quality=Best
 /build:Sounds/music.wav
 
-#begin Courier New.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:Courier New.spritefont
-
 #begin Images/move_down.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -474,4 +468,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/enemy_staying.png
+
+#begin AgencyFB.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:AgencyFB.spritefont
 

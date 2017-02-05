@@ -9,6 +9,7 @@ namespace BomberLibrary.Characters
     {
         [DataMember]
         public byte Life = 5;
+		public event GameDelegate PlayerDieEvent;
 
         public bool Killed;
 
@@ -22,6 +23,7 @@ namespace BomberLibrary.Characters
 
         public override void Kill()
         {
+			PlayerDieEvent?.Invoke();
 			Killed = true;
             Life--;
             base.Kill();

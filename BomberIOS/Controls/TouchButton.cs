@@ -9,8 +9,8 @@ namespace BomberIOS.Controls
 		private bool? isStopBePressed;
 
 		public TouchButton(float x, float y, ButtonDelegate buttonClickedAction, Sprite backgroundSprite = null,
-		                   string text = null, ButtonDelegate buttonReleasedAction = null) :
-		base(x, y, buttonClickedAction, backgroundSprite, text, buttonReleasedAction)
+		                   string text = null, ButtonDelegate buttonReleasedAction = null, bool drawInBlack = false) :
+		base(x, y, buttonClickedAction, backgroundSprite, text, buttonReleasedAction, drawInBlack:drawInBlack)
 		{
 		}
 

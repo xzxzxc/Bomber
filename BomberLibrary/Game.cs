@@ -61,7 +61,7 @@ namespace BomberLibrary
         public static void PlayerDie()
         {
             GameData.Enemies = new List<Enemy>();
-            GameData.CurrentScreen = GameData.Player.Life < 1 ? GameData.Screens.GameOverScreen :
+            GameData.CurrentScreen = GameData.Player.Life == 0? GameData.Screens.GameOverScreen :
                 GameData.Screens.DieScreen;
         }
 

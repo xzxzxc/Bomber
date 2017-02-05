@@ -1,7 +1,6 @@
 using BomberCrossPlatform.Controls;
 using BomberLibrary;
 using BomberLibrary.GameInterface;
-using BomberMonoLibrary;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Game = BomberLibrary.Game;

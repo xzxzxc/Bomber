@@ -41,7 +41,8 @@
         //
         // Text
         //
-        public abstract DrawableText CreateDrawableText(float xCener, float yCenter, string content = "");
+        public abstract DrawableText CreateDrawableText(float xCener, float yCenter, string content = ""
+            , bool drawInBlack = false);
 
 		//
 		// Animations
