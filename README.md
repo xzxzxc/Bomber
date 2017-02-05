@@ -1,3 +1,3 @@
 <h1>Bomblueghue cross-platform game (Windows, macOs, iOS(iPhone/iPod only))</h1>
 
-<h3>Play burning skull, </h3><h2>run away from zombies, </h2><h3>find the door below the rocks.</h3>
+<a size="12">Play burning skull, </a><a size="18">run away from zombies, </a><a size="12">find the door below the rocks.</a>
