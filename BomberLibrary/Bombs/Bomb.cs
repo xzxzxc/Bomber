@@ -78,7 +78,7 @@ namespace BomberLibrary.Bombs
             StartNewClockTask();
         }
 
-        private void Finialize()
+		public void Finialize()
         {
 			GameData.Player.PlayerDieEvent -= StopClock;
             Game.PauseEvent -= StopClock;

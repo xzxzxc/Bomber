@@ -41,8 +41,8 @@ namespace BomberLibrary
             if (levelNum > GameData.MaxLevelNum)
                 throw new ArgumentOutOfRangeException("There is no level number " + levelNum);
             GameData.CurrentLevel = GameData.Levels[levelNum];
-            GameData.Levels[levelNum].Create();
             GameData.ClearMapOffset();
+			GameData.Levels[levelNum].Create();
             GameData.SetPlayerPositionToStart();
             GameData.CurrentScreen = GameData.Screens.InGameScreen;
 			GameData.Player.Killed = false;

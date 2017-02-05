@@ -23,9 +23,10 @@ namespace BomberLibrary.Characters
 
         public override void Kill()
         {
-			PlayerDieEvent?.Invoke();
+			if (Killed) return;
 			Killed = true;
-            Life--;
+			PlayerDieEvent?.Invoke();
+			Life--;
             base.Kill();
         }
 

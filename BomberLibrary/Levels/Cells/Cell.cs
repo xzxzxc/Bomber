@@ -62,8 +62,8 @@ namespace BomberLibrary.Levels.Cells
 
         public void ClearBomb()
         {
+			Bomb?.Finialize();
             Bomb = null;
-            // GC.Collect();
         }
 
         public virtual void Boom()
