@@ -7,3 +7,4 @@
   <li>Find the door below the rocks</li>
 </ul>
 
+<img src="originals/bomblueghue.jpg">
